@@ -1,14 +1,16 @@
+import { Player } from "."
 import { IInteractiveObject } from "../interfaces"
-import { Player } from "./player"
 
 // Example of a trap for the third room
 export class Trap implements IInteractiveObject {
+  id: number
   name: string
   weight: number
   description: string
   damage: number
 
-  constructor(description: string, damage: number, weight: number = 0) {
+  constructor(id: number, description: string, damage: number, weight: number = 0) {
+    this.id = id
     this.name = "Piège"
     this.description = description
     this.damage = damage
@@ -16,7 +18,7 @@ export class Trap implements IInteractiveObject {
   }
 
   examine() {
-    return this.description
+    return `Id :  ${this.id} \n Name : ${this.name} : \n Description : ${this.description} \n Damage: ${this.damage} Weight : ${this.weight} !`
   }
 
   use(player : Player) {
