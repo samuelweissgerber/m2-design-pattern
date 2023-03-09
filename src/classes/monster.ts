@@ -18,17 +18,21 @@ export class Monster extends Character {
   examine() {
     return this.description
   }
-
-  use(player: Player, weapon: Weapon) {
-    this.currentLP -= player.inventory.filter(obj => obj.name === weapon.name).length * weapon.damage  // 5 est le dégât infligé par une épée
-    if (this.currentLP <= 0) {
-      // to-do
-      player.currentRoom.removeObject(this)
-      return `Vous avez vaincu ${this.name} !`
+  
+  attack(ennemy: Character, weapon: Weapon) {
+    if (this.inventory.find(el => el.name === weapon.name)) {
+      const playerProtection : number =  ennemy.inventory.find(el => el.name === "Armure")?.protection ?? 0
+      const damage: number = playerProtection - weapon.damage
+      ennemy.setCurrentLP(ennemy.currentLP - damage ) 
+      if (ennemy.currentLP <= 0) {
+        ennemy.currentRoom.removeObject(this)
+        return `${this.name} vous a vaincu !`
+      } else {
+        return `${this.name} vous attaque et vous inflige ${damage} dégâts !`
+      } 
     } else {
-      // to-do
-      player.inventory.filter(obj => obj.name === "Armor")[0].use(this, null) // utilise le bouclier
-      return `${this.name} vous attaque et vous inflige ${this} dégâts !`
-    } 
+      return ` Vous ne possédez pas de ${weapon.name}`
+    }
+    
   }
 }

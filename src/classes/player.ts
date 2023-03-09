@@ -1,6 +1,6 @@
-import { IInteractiveObject } from "../interfaces"
 import { Character } from "./character"
 import { Room } from "./room"
+import { Weapon } from "./weapon"
 
 // Classe pour représenter le joueur dans le jeu
 export class Player  extends Character {
@@ -8,9 +8,9 @@ export class Player  extends Character {
   currentLP: number
   maxLP: number
   weight: number
-  inventory: IInteractiveObject[]
+  inventory: any[]
 
-  super(startingRoom: Room, LP: number, weight: number = 0, inventory: IInteractiveObject[] = []) {
+  super(startingRoom: Room, LP: number, weight: number = 0, inventory = []) {
     this.currentRoom = startingRoom
     this.inventory = inventory
     this.currentLP = LP
@@ -18,21 +18,24 @@ export class Player  extends Character {
     this.weight = weight
   }
 
-  // Ajouter un objet à l'inventaire du joueur
-  addItemToInventory(object: IInteractiveObject) {
-    this.inventory.push(object)
-  }
+  goTo(room : Room) {
+		this.currentRoom = room
+	}
 
-  // Obtenir une description de l'inventaire du joueur
-  getInventoryDescription() {
-    let description = "Vous avez dans votre inventaire :"
-    if (this.inventory.length === 0) {
-      description += "\n - rien"
-    } else {
-      for (let obj of this.inventory) {
-        description += "\n - " + obj.name
+  attack(ennemy: Character, weapon: Weapon) {
+    if (this.inventory.find(el => el.name === weapon.name)) {
+      const ennemyProtection : number =  ennemy.inventory.find(el => el.name === "Armure")?.protection ?? 0
+      const damage: number = ennemyProtection - weapon.damage
+      ennemy.setCurrentLP(ennemy.currentLP - damage ) 
+      if (ennemy.currentLP <= 0) {
+        this.currentRoom.removeObject(ennemy)
+        return `vous avez vaincu ${ennemy.name}!`
+      } else {
+        return `vous avez infligé ${damage} dégâts à ${ennemy.name}!`
       }
+    } else {
+      return ` Vous ne possédez pas de ${weapon.name}`
     }
-    return description
+    
   }
 }

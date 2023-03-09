@@ -4,7 +4,7 @@ import { IInteractiveObject } from "../interfaces"
 export class Room {
   name: string
   description: string
-  objects: IInteractiveObject[]
+  objects: any[]
 
   constructor(name: string, description: string, objects: IInteractiveObject[] = []) {
     this.name = name
