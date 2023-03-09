@@ -1,21 +1,24 @@
+import { Player } from "."
 import { IInteractiveObject } from "../interfaces"
-import { Player } from "./player"
 
 export class Armor implements IInteractiveObject {
+  id: number
   name: string
   description: string
   protection: number
   weight: number
 
-  constructor(name : string =  "Armure" ,description: string, protection: number, weight: number = 0) {
+  constructor(id: number, name : string =  "Armure" ,description: string, protection: number, weight: number = 0) {
+    this.id = id;
     this.name = name
     this.description = description
     this.protection = protection
     this.weight = weight
+
   }
 
   examine() {
-    return `${this.name} : \n Description : ${this.description} \n Protection: ${this.protection} \n Weight ${this.weight} !`
+    return `Id :  ${this.id} \n Name : ${this.name} \n Description : ${this.description} \n Protection: ${this.protection} \n Weight ${this.weight} !`
   }
 
   getName() {
