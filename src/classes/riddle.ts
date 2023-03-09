@@ -1,7 +1,7 @@
 import { Player, Room } from "."
 import { IInteractiveObject } from "../interfaces"
 
-// Exemple d'objet interactif pour la deuxième salle
+// Example of interactive object for the second room
 export class Riddle implements IInteractiveObject {
   name: string
   question: string

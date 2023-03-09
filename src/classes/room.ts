@@ -1,6 +1,6 @@
 import { IInteractiveObject } from "../interfaces"
 
-// Classe pour représenter une pièce dans le jeu
+// Class to represent a piece in the game
 export class Room {
   name: string
   description: string
@@ -12,17 +12,17 @@ export class Room {
     this.objects = objects
   }
 
-  // Ajouter un objet interactif à la pièce
+  // Add an interactive object to the room
   addObject(object: IInteractiveObject) {
     this.objects.push(object)
   }
 
-  // Retirer un objet interactif à la pièce
+  // Remove an interactive object from the room
   removeObject(object: IInteractiveObject) {
     this.objects = this.objects.filter( obj => obj.name === object.name )
   }
 
-  // Obtenir une description de la pièce
+  // Get a part description
   getDescription() {
     let description = this.description
     if (this.objects.length > 0) {

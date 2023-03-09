@@ -3,7 +3,7 @@ import { Character } from "./character"
 import { Player } from "./player"
 import { Weapon } from "./weapon"
 
-// Exemple de monstre pour la première salle
+// Sample monster for the first room
 export class Monster extends Character {
   description: string
 

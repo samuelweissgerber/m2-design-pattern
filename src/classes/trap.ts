@@ -1,7 +1,7 @@
 import { IInteractiveObject } from "../interfaces"
 import { Player } from "./player"
 
-// Exemple de piège pour la troisième salle
+// Example of a trap for the third room
 export class Trap implements IInteractiveObject {
   name: string
   weight: number

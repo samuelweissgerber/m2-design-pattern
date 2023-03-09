@@ -2,7 +2,7 @@ import { IInteractiveObject } from "../interfaces"
 import { Room } from "./room"
 import { Weapon } from "./weapon"
 
-// Classe pour représenter le joueur dans le jeu
+// Class to represent the player in the game
 export abstract class Character implements IInteractiveObject {
   name: string
   currentRoom: Room
@@ -27,7 +27,7 @@ export abstract class Character implements IInteractiveObject {
     return 'void'
   }
 
-  // Ajouter un objet à l'inventaire du joueur
+  // Add item to player's inventory
   addItemToInventory(object: IInteractiveObject) {
     this.inventory.push(object)
   }
@@ -36,7 +36,7 @@ export abstract class Character implements IInteractiveObject {
     this.inventory = this.inventory.filter(obj => obj.name != object.name)
   }
 
-  // Obtenir une description de l'inventaire du joueur
+  // Get a description of the player's inventory
   getInventoryDescription() {
     let description = "Vous avez dans votre inventaire :"
     if (this.inventory.length === 0) {
