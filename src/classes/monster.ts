@@ -1,17 +1,13 @@
 import { IInteractiveObject } from "../interfaces"
+import { Character } from "./character"
 import { Player } from "./player"
+import { Weapon } from "./weapon"
 
 // Exemple de monstre pour la première salle
-export class Monster implements IInteractiveObject {
-
-  name: string
+export class Monster extends Character {
   description: string
-  weight: number
-  maxLP: number
-  currentLP: number
-  inventory: IInteractiveObject[]
 
-  constructor(name: string, description: string, LP: number, weight: number = 0, inventory: IInteractiveObject[] = [] ) {
+  super(name: string, description: string, LP: number, weight: number = 0, inventory: IInteractiveObject[] = [] ) {
     this.name = name
     this.description = description
     this.inventory = inventory
@@ -23,13 +19,15 @@ export class Monster implements IInteractiveObject {
     return this.description
   }
 
-  use(player: Player, object: IInteractiveObject) {
-    this.currentLP -= player.inventory.filter(obj => obj.name === "Épée").length * 5 // 5 est le dégât infligé par une épée
+  use(player: Player, weapon: Weapon) {
+    this.currentLP -= player.inventory.filter(obj => obj.name === weapon.name).length * weapon.damage  // 5 est le dégât infligé par une épée
     if (this.currentLP <= 0) {
-      //player.currentRoom.objects.splice(player.currentRoom.objects.indexOf(this), 1)
+      // to-do
+      player.currentRoom.removeObject(this)
       return `Vous avez vaincu ${this.name} !`
     } else {
-      player.inventory.filter(obj => obj.name === "Bouclier")[0].use(player, null) // utilise le bouclier
+      // to-do
+      player.inventory.filter(obj => obj.name === "Armor")[0].use(this, null) // utilise le bouclier
       return `${this.name} vous attaque et vous inflige ${this} dégâts !`
     } 
   }

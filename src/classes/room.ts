@@ -17,7 +17,8 @@ export class Room {
     this.objects.push(object)
   }
 
-  deleteObject(object: IInteractiveObject) {
+  // Retirer un objet interactif à la pièce
+  removeObject(object: IInteractiveObject) {
     this.objects = this.objects.filter( obj => obj.name === object.name )
   }
 

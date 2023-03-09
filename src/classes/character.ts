@@ -1,16 +1,17 @@
 import { IInteractiveObject } from "../interfaces"
-import { Character } from "./character"
 import { Room } from "./room"
+import { Weapon } from "./weapon"
 
 // Classe pour représenter le joueur dans le jeu
-export class Player  extends Character {
+export abstract class Character implements IInteractiveObject {
+  name: string
   currentRoom: Room
   currentLP: number
   maxLP: number
   weight: number
   inventory: IInteractiveObject[]
 
-  super(startingRoom: Room, LP: number, weight: number = 0, inventory: IInteractiveObject[] = []) {
+  constructor(startingRoom: Room, LP: number, weight: number = 0, inventory: IInteractiveObject[] = []) {
     this.currentRoom = startingRoom
     this.inventory = inventory
     this.currentLP = LP
@@ -18,9 +19,21 @@ export class Player  extends Character {
     this.weight = weight
   }
 
+  examine() {
+    return this.name
+  }
+
+  use(character: Character, weapon: Weapon) {
+    return 'void'
+  }
+
   // Ajouter un objet à l'inventaire du joueur
   addItemToInventory(object: IInteractiveObject) {
     this.inventory.push(object)
+  }
+  
+  removeItemToInventory(object: IInteractiveObject) {
+    this.inventory = this.inventory.filter(obj => obj.name != object.name)
   }
 
   // Obtenir une description de l'inventaire du joueur
@@ -35,4 +48,5 @@ export class Player  extends Character {
     }
     return description
   }
+
 }

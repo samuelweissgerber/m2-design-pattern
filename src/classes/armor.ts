@@ -1,7 +1,6 @@
 import { IInteractiveObject } from "../interfaces"
 import { Player } from "./player"
 
-// Exemple de piège pour la troisième salle
 export class Armor implements IInteractiveObject {
   name: string
   description: string
@@ -16,7 +15,19 @@ export class Armor implements IInteractiveObject {
   }
 
   examine() {
+    return `${this.name} : \n Description : ${this.description} \n Protection: ${this.protection} \n Weight ${this.weight} !`
+  }
+
+  getName() {
+    return this.name
+  }
+
+  getDescription() { 
     return this.description
+  }
+
+  getProtection() {
+    return this.protection
   }
 
   use(player : Player) {
