@@ -5,7 +5,9 @@ _A text aventure game created by Bryan, Claire, Ramus, Samuel (M2 DEV - ECV)_
 ### Threre is the links you need to see the project
 
 Repository : https://github.com/samuelweissgerber/m2-design-pattern
+
 Production : https://m2-design-pattern.pages.dev/
+
 Staging : https://staging.m2-design-pattern.pages.dev/
 
 ## The subject
