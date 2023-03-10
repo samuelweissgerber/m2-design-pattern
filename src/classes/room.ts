@@ -19,22 +19,25 @@ export class Room {
 		this.objects = objects
 	}
 
-  examine() {
-    // If it's not a trap we don't display the object description
-    let descRoomAndObjects: string = "" ;
-    
-    this.objects.forEach(object => {
-      if( object.name !== "Piège" ) {
-        descRoomAndObjects += object.examine();
-      }
-    });
+	examine() {
+		// If it's not a trap we don't display the object description
+		let descRoomAndObjects: string = ""
 
-    return `Name : ${this.name} \n Description : ${this.description} \n Objects list : ${descRoomAndObjects}`
-  }
+		this.objects.forEach((object) => {
+			if (object.name !== "Piège") {
+				descRoomAndObjects += object.examine()
+			}
+		})
+
+		return `Name : ${this.name} \n Description : ${this.description} \n Objects list : ${descRoomAndObjects}`
+	}
 
 	// Add an interactive object to the room
 	addObject(object: IInteractiveObject) {
 		this.objects.push(object)
+	}
+	removeObject(object: IInteractiveObject) {
+		this.objects = this.objects.filter((el) => el.name !== object.name)
 	}
 
 	// Get a part description
