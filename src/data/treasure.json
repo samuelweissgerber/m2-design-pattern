@@ -18,10 +18,12 @@
                     "choices": [
                         {
                             "type": "takeable",
+                            "id": 3,
                             "name": "Prendre le contenu du coffre"
                         },
                         {
-                            "type": "next",
+                            "type": "goTo",
+                            "id": 3,
                             "name": "Laisser le contenu dans le cofffre"
                         }
                     ]
