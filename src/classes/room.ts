@@ -42,28 +42,16 @@ export class Room {
 		this.objects = this.objects.filter((obj) => obj.name === object.name)
 	}
 
-<<<<<<< HEAD
-	// Get a part description
-=======
+
   // Get a part description
->>>>>>> a9fb3d1 (fix: (#14) conflict problems)
 	getDescription() {
 		let description = this.description
 		if (this.objects.length > 0) {
 			description += "\nIl y a ici :"
 			for (let obj of this.objects) {
-<<<<<<< HEAD
 				obj.name !== "piège" ? (description += "\n - " + obj.name) : ""
 			}
 		}
 		return description
 	}
 }
-=======
-        obj.name !== "piège" ? (description += "\n - " + obj.name) : ""			
-      }
-		}
-		return description
-	}
-}
->>>>>>> a9fb3d1 (fix: (#14) conflict problems)
