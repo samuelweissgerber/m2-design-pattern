@@ -1,5 +1,5 @@
 import { Player } from "."
-import { IInteractiveObject, InputType } from "../interfaces"
+import { IInteractiveObject, InputType } from "../interfaces/index.ts"
 
 /**
  * Represents a trap that can be found in a room.
@@ -29,7 +29,7 @@ export class Trap implements IInteractiveObject {
 		this.name = "Piège"
 		this.description = description
 		this.damage = damage
-		this.weight = 0
+		this.weight = weight
 		this.inputType = InputType.Boolean
 	}
 

@@ -1,21 +1,27 @@
-import { IInteractiveObject } from "../../interfaces"
-import { Player } from "../player"
-import { Takable } from "./takable"
+import { Player } from "../player.ts"
+import { Takable } from "./takable.ts"
 
 /**
  * This class represents an armor object in the game. 
  * It extends the Takable class and implements the IInteractiveObject interface.
 */
 export class Armor extends Takable {
+	name: string
 	protection: number
-
-	/**
+  
+/**
 	 * Creates an instance of Armor.
-	 * @param name The name of the armor. Default value is "Armure".
-	 * @param protection The amount of protection that the armor provides.
 	*/
-	super(name: string = "Armure", protection: number) {
-		this.name = name
+	constructor(
+		id: number,
+		name: string = "Arme",
+		description: string,
+		weight: number = 0,
+		protection: number) {
+		super(id,
+			name,
+			description,
+			weight)
 		this.protection = protection
 	}
 

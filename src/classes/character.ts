@@ -1,4 +1,4 @@
-import { IInteractiveObject, InputType } from "../interfaces"
+import { IInteractiveObject } from "../interfaces"
 import { Room } from "./room"
 import { Weapon } from "./takables/weapon"
 
@@ -77,7 +77,7 @@ export abstract class Character implements IInteractiveObject {
      * @param object The item to remove.
     */
 	removeItemToInventory(object: IInteractiveObject) {
-		this.inventory = this.inventory.filter((obj) => obj.name != object.name)
+		this.inventory = this.inventory.filter((obj) => obj.name !== object.name)
 	}
 
 	/**

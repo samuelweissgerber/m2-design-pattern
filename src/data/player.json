@@ -1,6 +1,7 @@
 {
     "player": [
         {
+            "id": 0,
             "name": "Bardeid",
             "race": "Humain",
             "currentRoom": null,
@@ -23,6 +24,7 @@
             ]
         },
         {
+            "id": 1,
             "name": "Althaea",
             "race": "Elfe",
             "currentRoom": null,
@@ -40,7 +42,7 @@
                 }
             ]
         },
-        {
+        {   "id": 2,
             "name": "Thorin",
             "race": "Nain",
             "currentRoom": null,

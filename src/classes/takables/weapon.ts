@@ -1,13 +1,24 @@
 import { Character } from "../character"
 import { Player } from "../player"
-import { Takable } from "./takable"
+import { Takable } from "./takable.ts"
 
 /**
  * A weapon trap that can be used against an enemy.
  * Inherits from the Takable class.
  */
 export class Weapon extends Takable {
-	super() {}
+	damage: number
+	constructor(id: number,
+		name: string = "Arme",
+		description: string,
+		weight: number = 0,
+		damage: number) {
+		super(id,
+			name,
+			description,
+			weight)
+		this.damage = damage
+	}
 
 	/**
 	 * Uses the weapon trap against an enemy, causing damage and triggering any associated effects.

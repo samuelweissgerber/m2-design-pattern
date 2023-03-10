@@ -1,5 +1,5 @@
 import { Player, Room } from "."
-import { IInteractiveObject, InputType } from "../interfaces"
+import { IInteractiveObject, InputType } from "../interfaces/index.ts"
 
 /**
  * Represents a riddle in the game
@@ -32,6 +32,7 @@ export class Riddle implements IInteractiveObject {
 		this.name = "Énigme"
 		this.question = question
 		this.answer = answer
+		this.weight = weight
 		this.reward = reward
 		this.inputType = InputType.Prompt
 	}

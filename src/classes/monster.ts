@@ -1,50 +1,88 @@
-import { Character } from "."
-import { IInteractiveObject } from "../interfaces"
-import { Weapon } from "./takables/weapon"
 
-/**
- * Represents a monster in the game.
- */
-export class Monster extends Character {
+import { Player } from "./player.ts"
+import { IInteractiveObject } from "../interfaces/index.ts"
+import { Weapon } from "./takables/weapon.ts"
+import { Armor } from "./takables/armor.ts"
+import { Room } from "./room.ts"
+import { InputType } from "../interfaces/index.ts"
+
+// Sample monster for the first room
+export class Monster {
+  id: number
+  name: string
+	currentLP: number
+	maxLP: number
+	weight: number
+	protection: number
+	inventory: any[]
 	description: string
+	inputType: InputType
 
-  /**
-   * Creates a new Monster object.
-   * @param name - The name of the monster.
-   * @param description - The description of the monster.
-   * @param LP - The life points of the monster.
-   * @param weight - The weight of the monster.
-   * @param inventory - The inventory of the monster.
-  */
-	super(
-		name: string,
-		description: string,
-		LP: number,
-		weight: number = 0,
-		inventory: IInteractiveObject[] = [],
-	) {
-		this.name = name
-		this.description = description
-		this.inventory = inventory
+	constructor(id: number,name: string,  LP: number, weight: number = 0,description: string, inventory = []) {
+		this.id = id
+    	this.name = name
 		this.currentLP = LP
 		this.maxLP = LP
+		this.weight = weight
+		this.inventory = inventory
+    	this.description = description
+		this.protection = inventory.reduce(
+			(acc, obj: Armor) =>
+				obj.name === "Arme" ? acc + obj?.protection : acc,
+			0,
+		)
+		this.inputType = InputType.Boolean
 	}
 
-  /**
-   * Returns a string representation of the Monster object.
-   * @returns A string representation of the Monster object.
-  */
-  examine() {
-    return `Name : ${this.name} \n Description : ${this.description} \n Inventory: ${this.inventory} \n Current life points ${this.currentLP} \n Maximum life points ${this.maxLP}`
-  }
+
+	getProtection(): number {
+		return this.protection
+	}
+
+	setProtection(protection: number) {
+		this.protection += protection
+	}
+
+	goTo(room: Room) {
+		this.currentRoom = room
+	}
+
+	examine() {
+		return this.name
+	}
+
+	setCurrentLP(point: number) {
+		this.currentLP = point
+	}
+
+	use(character: Player, weapon: Weapon) {
+		return "void"
+	}
+
+	// Add item to character's inventory
+	addItemToInventory(object: IInteractiveObject) {
+		this.inventory.push(object)
+	}
+
+	// Remove item from character's inventory
+	removeItemToInventory(object: IInteractiveObject) {
+		this.inventory = this.inventory.filter((obj) => obj.name !== object.name)
+	}
+
+	// Get a description of the player's inventory
+	getInventoryDescription() {
+		let description = "Inventaire :"
+		if (this.inventory.length === 0) {
+			description += "\n - rien"
+		} else {
+			for (let obj of this.inventory) {
+				description += "\n - " + obj.name
+			}
+		}
+		return description
+	}
   
-  /**
-   * Attacks an enemy character with a weapon.
-   * @param enemy - The character to attack.
-   * @param weapon - The weapon to use.
-   * @returns A string indicating the result of the attack.
-  */
-  attack(ennemy: Character, weapon: Weapon) {
+  attack(ennemy: Player, weapon: Weapon) {
     if (this.inventory.find(el => el.name === weapon.name)) {
       const playerProtection : number =  ennemy.inventory.find(el => el.name === "Armure")?.protection ?? 0
       const damage: number = playerProtection - weapon.damage
@@ -58,6 +96,5 @@ export class Monster extends Character {
     } else {
       return ` Vous ne possédez pas de ${weapon.name}`
     }
-    
   }
 }

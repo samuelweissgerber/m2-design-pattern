@@ -1,20 +1,21 @@
-import { IInteractiveObject } from "../../interfaces"
-import { Player } from "../player"
-import { Takable } from "./takable"
+import { Player } from "../player.ts"
+import { Takable } from "./takable.ts"
 
 /**
  * A treasure object that can be picked up and added to a player's inventory.
  * Inherits from the Takable class.
 */
 export class Treasure extends Takable {
-	id: number
-	name: string
-	description: string
-	weight: number
 	inventory: any[]
 
-	super() {
-		this.name = "Trésor"
+	constructor(id: number,
+		name: string = "Arme",
+		description: string,
+		weight: number = 0,
+		inventory: any [] ){
+
+		super(id,name,description,weight)
+		this.inventory = inventory
 	}
 
 	/**
