@@ -1,0 +1,32 @@
+{
+    "armor": [
+        {
+            "id": 0,
+            "name": "Armure de cuir",
+            "description": "La cuirasse et les protecteurs d'épaules de cette armure sont faits de cuir qui a été durci en étant bouilli dans de l'huile. Le reste de l'armure est fait de matériaux plus tendres et plus souples.",
+            "protection": 1,
+            "weight": 5
+        },
+        {
+            "id": 1,
+            "name": "Cotte de mailles",
+            "description": "Fait d'anneaux métalliques entrecroisés, la cotte de mailles comprend une couche de tissu matelassé porté sous la cotte pour éviter les frottements et amortir l'impact de coups. L'ensemble comprend des gantelets.",
+            "protection": 2,
+            "weight": 27.5
+        },
+        {
+            "id": 2,
+            "name": "Harnois",
+            "description": "Le harnois est constitué de plaques de métal entrecroisées qui couvrent l'ensemble du corps. L'ensemble inclut des gants, des bottes en cuir épais, un casque à visière, et d'épaisses couches de rembourrage sous l'armure. Des boucles et des sangles distribuent le poids sur le corps.",
+            "protection": 4,
+            "weight": 30
+        },
+        {
+            "id": 3,
+            "name": "Bouclier",
+            "description": "Un bouclier en métal, protégeant des projectiles et des coups d'épées. Cette protection nécessite une main pour être utilisée.",
+            "protection": 4,
+            "weight": 3
+        }
+    ]
+}

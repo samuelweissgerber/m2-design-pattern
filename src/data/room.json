@@ -1,0 +1,59 @@
+{
+    "room": [
+        {
+            "id": 0,
+            "name": "Entrée des ruines",
+            "description": "Vous arrivez devant les ruines où le voleur s'est réfugié.",
+            "objects": [
+                {
+                    "type": "monster",
+                    "id": 0
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Couloir",
+            "description": "Vous decendez dans le couloir et vous vous enfoncez dans les profondeurs de la Terre. Vous finnissez par apercevoir une porte, cependant, une statue garde l'entrée. Une statue qui, dès que vous arrivez à son niveau, parlera. Une voie rauque rompt le lourd silence du couloir et dis",
+            "objects": [
+                {
+                    "type": "riddle",
+                    "id": 0
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Salle secrète : Petit coffre",
+            "description": "La statue se déplace et laisse apparaitre un coffre dissimulé.",
+            "objects": [
+                {
+                    "type": "treassure",
+                    "id": 0
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Salle vide piégée",
+            "description": "Une salle entièrement vide dont le sol est recouvert de dalle en pierre. Deux petites torches trônent d'une part et d'autre de la porte de l'autre côté de la pièce.",
+            "objects": [
+                {
+                    "type": "trap",
+                    "id": 0
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Salle du boss",
+            "description": "Vous ouvrez la porte, une pièce sombre. Un courant d'air glacial vous traverse le corps, vous frissonnez.",
+            "objects": [
+                {
+                    "type": "monster",
+                    "id": 1
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "weapon": [
+        {
+            "id": 0,
+            "name": "Epée",
+            "description": "Une épée tranchante et légère.",
+            "damage": 6,
+            "weight": 1.5
+        },
+        {
+            "id": 1,
+            "name": "Maillet",
+            "description": "Un maillet massif et puissant.",
+            "damage": 12,
+            "weight": 5
+        },
+        {
+            "id": 2,
+            "name": "Arc long",
+            "description": "Un arc long et précis.",
+            "damage": 10,
+            "weight": 1
+        }
+    ]
+}
