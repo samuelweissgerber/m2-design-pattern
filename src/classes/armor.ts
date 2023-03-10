@@ -18,7 +18,7 @@ export class Armor implements IInteractiveObject {
   }
 
   examine() {
-    return `Id :  ${this.id} \n Name : ${this.name} \n Description : ${this.description} \n Protection: ${this.protection} \n Weight ${this.weight} !`
+    return `Name : ${this.name} \n Description : ${this.description} \n Protection: ${this.protection} \n Weight ${this.weight}`
   }
 
   getName() {

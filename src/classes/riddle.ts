@@ -19,7 +19,7 @@ export class Riddle implements IInteractiveObject {
   }
 
   examine() {
-    return `Id :  ${this.id} \n Name : ${this.name} : \n Question : ${this.question} \n Answer: ${this.answer} \n Reward ${this.reward} !`
+    return `Name : ${this.name} \n Question : ${this.question} \n Answer : ${this.answer} \n Reward ${this.reward}`
   }
 
 

@@ -18,7 +18,7 @@ export class Treasure implements IInteractiveObject {
   }
 
   examine() {
-    return `Id :  ${this.id} \n Name : ${this.name} : \n Description : ${this.description} \n Inventory: ${this.inventory} Weight : ${this.weight} !`
+    return `Name : ${this.name} \n Description : ${this.description} \n Inventory: ${this.inventory} Weight : ${this.weight}`
   }
 
   use(player : Player) {
