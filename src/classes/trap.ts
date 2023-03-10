@@ -24,9 +24,15 @@ export class Trap implements IInteractiveObject {
 		this.inputType = InputType.Boolean
 	}
 
+<<<<<<< HEAD
 	examine() {
 		return `Id :  ${this.id} \n Name : ${this.name} : \n Description : ${this.description} \n Damage: ${this.damage} Weight : ${this.weight} !`
 	}
+=======
+  examine() {
+    return `Name : ${this.name} \n Description : ${this.description} \n Damage : ${this.damage} Weight : ${this.weight}`
+  }
+>>>>>>> 2754101 (feat: (6) Update examine room function with examine objects function)
 
 	use(player: Player) {
 		player.inventory

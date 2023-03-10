@@ -26,9 +26,15 @@ export class Riddle implements IInteractiveObject {
 		this.inputType = InputType.Prompt
 	}
 
+<<<<<<< HEAD
 	examine() {
 		return `Id :  ${this.id} \n Name : ${this.name} : \n Question : ${this.question} \n Answer: ${this.answer} \n Reward ${this.reward} !`
 	}
+=======
+  examine() {
+    return `Name : ${this.name} \n Question : ${this.question} \n Answer : ${this.answer} \n Reward ${this.reward}`
+  }
+>>>>>>> 2754101 (feat: (6) Update examine room function with examine objects function)
 
 	use(player: Player) {
 		const input = prompt(this.question)
