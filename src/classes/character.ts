@@ -82,8 +82,4 @@ export abstract class Character implements IInteractiveObject {
 			return ` ${this.name} ne possédez pas de ${weapon.name}`
 		}
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a9fb3d1 (fix: (#14) conflict problems)

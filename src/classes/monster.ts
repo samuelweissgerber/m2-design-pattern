@@ -20,14 +20,7 @@ export class Monster extends Character {
 		this.maxLP = LP
 	}
 
-<<<<<<< HEAD
-	examine() {
-		return `Id :  ${this.id} \n Name : ${this.name} : \n Description : ${this.description} \n Inventory: ${this.inventory} \n Current life points ${this.currentLP} \n Maximum life points ${this.maxLP} !`
-	}
-}
-=======
   examine() {
-<<<<<<< HEAD
     return `Name : ${this.name} \n Description : ${this.description} \n Inventory: ${this.inventory} \n Current life points ${this.currentLP} \n Maximum life points ${this.maxLP}`
   }
   
@@ -48,9 +41,3 @@ export class Monster extends Character {
     
   }
 }
->>>>>>> 2754101 (feat: (6) Update examine room function with examine objects function)
-=======
-		return `Id :  ${this.id} \n Name : ${this.name} : \n Description : ${this.description} \n Inventory: ${this.inventory} \n Current life points ${this.currentLP} \n Maximum life points ${this.maxLP} !`
-	}
-}
->>>>>>> a9fb3d1 (fix: (#14) conflict problems)

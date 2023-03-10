@@ -18,8 +18,4 @@ export class Armor extends Takable {
 		player.setProtection(this.protection)
 		return `Le piège vous inflige ${this.protection} dégâts !`
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a9fb3d1 (fix: (#14) conflict problems)

@@ -18,8 +18,5 @@ export class Treasure extends Takable {
 		this.inventory.map((el) => player.addItemToInventory(el))
 		return `Vous avez ajouter ${this.name} à votre inventaire`
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a9fb3d1 (fix: (#14) conflict problems)
+
