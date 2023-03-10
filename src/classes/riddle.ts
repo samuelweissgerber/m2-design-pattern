@@ -3,7 +3,11 @@ import { IInteractiveObject, InputType } from "../interfaces"
 
 // Example of interactive object for the second room
 export class Riddle implements IInteractiveObject {
+<<<<<<< HEAD
 	id: number
+=======
+  id: number
+>>>>>>> a9fb3d1 (fix: (#14) conflict problems)
 	name: string
 	question: string
 	weight: number
@@ -11,6 +15,7 @@ export class Riddle implements IInteractiveObject {
 	reward: IInteractiveObject[] | string | Room
 	inputType: InputType
 
+<<<<<<< HEAD
 	constructor(
 		id: number,
 		question: string,
@@ -25,6 +30,16 @@ export class Riddle implements IInteractiveObject {
 		this.reward = reward
 		this.inputType = InputType.Prompt
 	}
+=======
+  constructor(id: number, question: string, answer: string, weight: number = 0, reward) {
+    this.id = id
+    this.name = "Énigme"
+    this.question = question
+    this.answer = answer
+    this.reward = reward
+    this.inputType = InputType.Prompt
+  }
+>>>>>>> a9fb3d1 (fix: (#14) conflict problems)
 
 <<<<<<< HEAD
 	examine() {
@@ -36,7 +51,12 @@ export class Riddle implements IInteractiveObject {
   }
 >>>>>>> 2754101 (feat: (6) Update examine room function with examine objects function)
 
+<<<<<<< HEAD
 	use(player: Player) {
+=======
+
+  use(player: Player) {
+>>>>>>> a9fb3d1 (fix: (#14) conflict problems)
 		const input = prompt(this.question)
 		if (input === this.answer) {
 			player.addItemToInventory(this)
@@ -45,4 +65,8 @@ export class Riddle implements IInteractiveObject {
 			return "Désolé, ce n'est pas la bonne réponse..."
 		}
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a9fb3d1 (fix: (#14) conflict problems)

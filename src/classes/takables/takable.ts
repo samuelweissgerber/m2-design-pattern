@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> a9fb3d1 (fix: (#14) conflict problems)
 import { IInteractiveObject, InputType } from "../../interfaces"
 import { Character } from "../character"
 import { Player } from "../player"
@@ -45,4 +49,8 @@ export abstract class Takable implements IInteractiveObject {
 	use(player: Character, ennemy: Character | null) {
 		return ""
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a9fb3d1 (fix: (#14) conflict problems)

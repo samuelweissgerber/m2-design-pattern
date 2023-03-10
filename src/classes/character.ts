@@ -4,7 +4,11 @@ import { Weapon } from "./takables/weapon"
 
 // Class to represent the player in the game
 export abstract class Character implements IInteractiveObject {
+<<<<<<< HEAD
 	id: number
+=======
+  id: number
+>>>>>>> a9fb3d1 (fix: (#14) conflict problems)
 	name: string
 	currentRoom: Room
 	currentLP: number
@@ -78,4 +82,8 @@ export abstract class Character implements IInteractiveObject {
 			return ` ${this.name} ne possédez pas de ${weapon.name}`
 		}
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a9fb3d1 (fix: (#14) conflict problems)

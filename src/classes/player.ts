@@ -4,8 +4,13 @@ import { Armor, Takable } from "./takables"
 import { Weapon } from "./takables/weapon"
 
 // Classe pour représenter le joueur dans le jeu
+<<<<<<< HEAD
 export class Player extends Character {
 	currentRoom: Room
+=======
+export class Player  extends Character {
+  currentRoom: Room
+>>>>>>> a9fb3d1 (fix: (#14) conflict problems)
 	currentLP: number
 	maxLP: number
 	weight: number
@@ -24,6 +29,17 @@ export class Player extends Character {
 			0,
 		)
 	}
+<<<<<<< HEAD
+=======
+
+	getProtection(): number {
+		return this.protection
+	}
+
+	setProtection(protection: number) {
+		this.protection += protection
+	}
+>>>>>>> a9fb3d1 (fix: (#14) conflict problems)
 
 	getProtection(): number {
 		return this.protection
@@ -37,4 +53,8 @@ export class Player extends Character {
 		this.currentRoom = room
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a9fb3d1 (fix: (#14) conflict problems)
