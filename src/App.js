@@ -1,15 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Site de staging React
-        </p>
+        <p>Name</p>
+        <p>LP</p>
       </header>
+      <main>
+        <p>Description</p>
+      </main>
+      <footer>
+        <p>INPUT</p>
+      </footer>
     </div>
   );
 }
