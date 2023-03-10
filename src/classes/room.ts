@@ -5,7 +5,7 @@ export class Room {
   id: number
   name: string
   description: string
-  objects: IInteractiveObject[]
+  objects: any[]
 
   constructor(id: number, name: string, description: string, objects: IInteractiveObject[] = []) {
     this.id = id

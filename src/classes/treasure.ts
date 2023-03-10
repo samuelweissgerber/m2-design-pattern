@@ -7,7 +7,7 @@ export class Treasure implements IInteractiveObject {
   name: string
   description: string
   weight: number
-  inventory: IInteractiveObject[]
+  inventory: any[]
 
   constructor(id: number, description: string, weight: number = 0 , inventory: IInteractiveObject[] = [] ) {
     this.id = id
@@ -22,7 +22,7 @@ export class Treasure implements IInteractiveObject {
   }
 
   use(player : Player) {
-   // player.addItemToInventory({name: "Épée"})
+    this.inventory.map(el => player.addItemToInventory(el) )
     return "Vous avez trouvé une épée !"
   }
 }

@@ -4,14 +4,16 @@ import { Weapon } from "./weapon"
 
 // Class to represent the player in the game
 export abstract class Character implements IInteractiveObject {
+  id: number
   name: string
   currentRoom: Room
   currentLP: number
   maxLP: number
   weight: number
-  inventory: IInteractiveObject[]
+  inventory: any[]
 
-  constructor(startingRoom: Room, LP: number, weight: number = 0, inventory: IInteractiveObject[] = []) {
+  constructor(id: number, startingRoom: Room, LP: number, weight: number = 0, inventory: any[] = []) {
+    this.id = id
     this.currentRoom = startingRoom
     this.inventory = inventory
     this.currentLP = LP
@@ -23,22 +25,27 @@ export abstract class Character implements IInteractiveObject {
     return this.name
   }
 
+  setCurrentLP(point: number) {
+    this.currentLP = point
+  }
+
   use(character: Character, weapon: Weapon) {
     return 'void'
   }
 
-  // Add item to player's inventory
+  // Add item to character's inventory
   addItemToInventory(object: IInteractiveObject) {
     this.inventory.push(object)
   }
   
+  // Remove item from character's inventory
   removeItemToInventory(object: IInteractiveObject) {
     this.inventory = this.inventory.filter(obj => obj.name != object.name)
   }
 
   // Get a description of the player's inventory
   getInventoryDescription() {
-    let description = "Vous avez dans votre inventaire :"
+    let description = "Inventaire :"
     if (this.inventory.length === 0) {
       description += "\n - rien"
     } else {
@@ -48,5 +55,4 @@ export abstract class Character implements IInteractiveObject {
     }
     return description
   }
-
 }
