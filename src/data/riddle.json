@@ -1,0 +1,26 @@
+{
+    "riddle": [
+        {
+            "id": 0,
+            "name": "Enigme du sphinx - 4 saisons",
+            "question": "Au printemps , 4 piliers me soutiennent. A l'été, deux d'entre eux sont tombés. A l'automne un troisième a poussé. Mais à l'hiver les 4 se sont effondrés. Qui suis-je ?",
+            "weight": null,
+            "answer": "homme",
+            "interactions": {
+                "type": "riddle",
+                "answer": [
+                    {
+                        "isCorrect": true,
+                        "type": "goTo",
+                        "idRoom": 2
+                    },
+                    {
+                        "isCorrect": false,
+                        "type": "goTo",
+                        "idRoom": 3
+                    }
+                ]
+            }
+        }
+    ]
+}

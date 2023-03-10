@@ -19,21 +19,22 @@ export class Room {
 		this.objects = objects
 	}
 
-	examine() {
-		return (
-			`Id :  ${this.id} \n Name : ${this.name} : \n Description : ${this.description} \n Objects: ${this.objects} !` +
-			this.getDescription()
-		)
-	}
+  examine() {
+    // If it's not a trap we don't display the object description
+    let descRoomAndObjects: string = "" ;
+    
+    this.objects.forEach(object => {
+      if( object.name !== "Piège" ) {
+        descRoomAndObjects += object.examine();
+      }
+    });
+
+    return `Name : ${this.name} \n Description : ${this.description} \n Objects list : ${descRoomAndObjects}`
+  }
 
 	// Add an interactive object to the room
 	addObject(object: IInteractiveObject) {
 		this.objects.push(object)
-	}
-
-	// Remove an interactive object from the room
-	removeObject(object: IInteractiveObject) {
-		this.objects = this.objects.filter((obj) => obj.name === object.name)
 	}
 
 	// Get a part description
@@ -41,9 +42,9 @@ export class Room {
 		let description = this.description
 		if (this.objects.length > 0) {
 			description += "\nIl y a ici :"
-			for (let obj of this.objects) {
-				obj.name !== "piège" ? (description += "\n - " + obj.name) : ""
-			}
+			this.objects.map((obj) =>
+				obj.name !== "piège" ? (description += "\n - " + obj.name) : "",
+			)
 		}
 		return description
 	}

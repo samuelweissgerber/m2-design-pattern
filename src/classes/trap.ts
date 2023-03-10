@@ -24,9 +24,9 @@ export class Trap implements IInteractiveObject {
 		this.inputType = InputType.Boolean
 	}
 
-	examine() {
-		return `Id :  ${this.id} \n Name : ${this.name} : \n Description : ${this.description} \n Damage: ${this.damage} Weight : ${this.weight} !`
-	}
+  examine() {
+    return `Name : ${this.name} \n Description : ${this.description} \n Damage : ${this.damage} Weight : ${this.weight}`
+  }
 
 	use(player: Player) {
 		player.inventory

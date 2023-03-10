@@ -1,0 +1,26 @@
+{
+    "trap": [
+        {
+            "id": 0,
+            "name": "Dalle piégé",
+            "description": null,
+            "weight": null,
+            "interactions": {
+                "type": "trap",
+                "property": "weight",
+                "limit": 100,
+                "damage": 4,
+                "description": [
+                    {
+                        "isActive": true,
+                        "content": "Vous avancez dans la pièce vide, quand d'un coup, la dalle sur laquelle vous prenez appuis s'enfonce sous votre poids. Un pieu tombe du plafond à toute vitesse dans votre direction. Vous tentez d'esquiver le piège mais votre jambe est à la traine, le pieu vous blesse la cuisse"
+                    },
+                    {
+                        "isActive": false,
+                        "content": "Vous atteignez l'autre côté de la pièce, pourquoi avoir peur d'une pièce vide après tout…"
+                    }
+                ]
+            }
+        }
+    ]
+}
