@@ -32,7 +32,7 @@ player
 
 ## Diagram of relations between classes
 
-![alt text](https://github.com/samuelweissgerber/m2-design-pattern/public/readme_classes_diagram.png 'Classes's diagram')
+[diagram]: https://github.com/samuelweissgerber/m2-design-pattern/tree/staging/public/readme_classes_diagram.png 'Diagram of classes'
 
 ## Create new data
 
