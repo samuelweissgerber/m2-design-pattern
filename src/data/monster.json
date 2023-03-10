@@ -1,0 +1,42 @@
+{
+    "monster": [
+        {
+            "id": 0,
+            "name": "Shrok",
+            "race": "Orc",
+            "description": "Les orcs sont des humanoïdes sauvages qui ont une posture voutée, des visages grossiers et des dents proéminentes qui ressemblent à des défenses.",
+            "currentLP": 7,
+            "maxLP": 7,
+            "weight": 80,
+            "inventory": [
+                {
+                    "type": "weapon",
+                    "id": 0
+                },
+                {
+                    "type": "armor",
+                    "id": 0
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Le grand méchant voleur de sceptre",
+            "race": "Humain",
+            "description": "Un humain assez grand vous fait volte face lors de votre interruption dans la pièce. Vous reconnaissez ce voleur, c'est le frère du roi qui convoite le trône dans l'ombre. Il faut lui arracher le sceptre des mains !",
+            "currentLP": 12,
+            "maxLP": 12,
+            "weight": 60,
+            "inventory": [
+                {
+                    "type": "weapon",
+                    "id": 1
+                },
+                {
+                    "type": "armor",
+                    "id": 0
+                }
+            ]
+        }
+    ]
+}
