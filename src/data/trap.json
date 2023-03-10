@@ -5,11 +5,11 @@
             "name": "Dalle piégé",
             "description": null,
             "weight": null,
+            "damage": 4,
             "interactions": {
                 "type": "trap",
                 "property": "weight",
                 "limit": 100,
-                "damage": 4,
                 "description": [
                     {
                         "isActive": true,

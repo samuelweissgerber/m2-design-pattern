@@ -1,4 +1,4 @@
-import { IInteractiveObject, InputType } from "../../interfaces"
+import { IInteractiveObject, InputType } from "../../interfaces/index.ts"
 import { Character } from "../character"
 import { Player } from "../player"
 
@@ -7,7 +7,6 @@ export abstract class Takable implements IInteractiveObject {
 	id: number
 	name: string
 	description: string
-	damage: number
 	weight: number
 	inputType: InputType
 
@@ -15,13 +14,11 @@ export abstract class Takable implements IInteractiveObject {
 		id: number,
 		name: string = "Arme",
 		description: string,
-		damage: number,
 		weight: number = 0,
 	) {
 		this.id = id
 		this.name = name
 		this.description = description
-		this.damage = damage
 		this.weight = weight
 		this.inputType = InputType.Boolean
 	}
