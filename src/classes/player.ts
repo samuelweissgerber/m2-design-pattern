@@ -4,6 +4,7 @@ import { Room } from "./room"
 import { Armor, Takable } from "./takables.ts"
 import { Weapon } from "./takables/weapon.ts"
 
+
 // Classe pour représenter le joueur dans le jeu
 export class Player {
 	id: number
@@ -28,14 +29,29 @@ export class Player {
 		)
 	}
 
+	/**
+	 * Gets the protection provided by the armor worn by the player.
+	 *
+	 * @returns {number} The protection value.
+	 */
 	getProtection(): number {
 		return this.protection
 	}
 
+	/**
+	 * Sets the protection provided by the armor worn by the player.
+	 *
+	 * @param {number} protection - The protection value to set.
+	 */
 	setProtection(protection: number) {
 		this.protection += protection
 	}
 
+	/**
+	 * Moves the player to the specified room.
+	 *
+	 * @param {Room} room - The room where the player should go.
+	 */
 	goTo(room: Room) {
 		this.currentRoom = room
 	}
