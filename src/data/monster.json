@@ -10,11 +10,11 @@
             "weight": 80,
             "inventory": [
                 {
-                    "type": "weapon",
+                    "type": "weapons",
                     "id": 0
                 },
                 {
-                    "type": "armor",
+                    "type": "armors",
                     "id": 0
                 }
             ]
@@ -29,11 +29,11 @@
             "weight": 60,
             "inventory": [
                 {
-                    "type": "weapon",
+                    "type": "weapons",
                     "id": 1
                 },
                 {
-                    "type": "armor",
+                    "type": "armors",
                     "id": 0
                 }
             ]

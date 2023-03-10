@@ -4,5 +4,6 @@
   "prettier.stylelintIntegration": true,
   "prettier.tslintIntegration": true,
   "editor.formatOnSave": true,
-  "editor.formatOnSaveMode": "file"
+  "editor.formatOnSaveMode": "file",
+  "nuxt.isNuxtApp": false
 }

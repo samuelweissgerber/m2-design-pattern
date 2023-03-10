@@ -1,12 +1,20 @@
-import { IInteractiveObject } from "../../interfaces"
-import { Player } from "../player"
-import { Takable } from "./takable"
+import { Player } from "../player.ts"
+import { Takable } from "./takable.ts"
 
 export class Armor extends Takable {
+	name: string
 	protection: number
 
-	super(name: string = "Armure", protection: number) {
-		this.name = name
+	constructor(
+		id: number,
+		name: string = "Arme",
+		description: string,
+		weight: number = 0,
+		protection: number) {
+		super(id,
+			name,
+			description,
+			weight)
 		this.protection = protection
 	}
 
