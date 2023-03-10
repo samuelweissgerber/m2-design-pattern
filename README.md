@@ -32,6 +32,8 @@ player
 
 ## Diagram of relations between classes
 
+![alt text][diagram]
+
 [diagram]: https://github.com/samuelweissgerber/m2-design-pattern/tree/staging/public/readme_classes_diagram.png 'Diagram of classes'
 
 ## Create new data
