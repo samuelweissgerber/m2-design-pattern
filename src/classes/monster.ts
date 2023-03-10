@@ -1,6 +1,5 @@
+import { Character, Player } from "."
 import { IInteractiveObject } from "../interfaces"
-import { Character } from "./character"
-import { Player } from "./player"
 import { Weapon } from "./weapon"
 
 // Sample monster for the first room
@@ -16,7 +15,7 @@ export class Monster extends Character {
   }
 
   examine() {
-    return this.description
+    return `Id :  ${this.id} \n Name : ${this.name} : \n Description : ${this.description} \n Inventory: ${this.inventory} \n Current life points ${this.currentLP} \n Maximum life points ${this.maxLP} !`
   }
   
   attack(ennemy: Character, weapon: Weapon) {
