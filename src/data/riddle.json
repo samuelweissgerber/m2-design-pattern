@@ -6,12 +6,6 @@
             "question": "Au printemps , 4 piliers me soutiennent. A l'été, deux d'entre eux sont tombés. A l'automne un troisième a poussé. Mais à l'hiver les 4 se sont effondrés. Qui suis-je ?",
             "weight": null,
             "answer": "homme",
-            "reward": [
-                {
-                    "type": "goTo",
-                    "id": 2
-                }
-            ],
             "interactions": {
                 "type": "riddle",
                 "answer": [
