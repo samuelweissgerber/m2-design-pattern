@@ -32,20 +32,15 @@ export class Room {
     this.objects.push(object)
   }
 
-  // Remove an interactive object from the room
-  removeObject(object: IInteractiveObject) {
-    this.objects = this.objects.filter( obj => obj.name === object.name )
-  }
-
-  // Get a part description
-  getDescription() {
-    let description = this.description
-    if (this.objects.length > 0) {
-      description += "\nIl y a ici :"
-      for (let obj of this.objects) {
-        description += "\n - " + obj.name
-      }
-    }
-    return description
-  }
+	// Get a part description
+	getDescription() {
+		let description = this.description
+		if (this.objects.length > 0) {
+			description += "\nIl y a ici :"
+			this.objects.map((obj) =>
+				obj.name !== "piège" ? (description += "\n - " + obj.name) : "",
+			)
+		}
+		return description
+	}
 }
