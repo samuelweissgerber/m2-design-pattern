@@ -15,7 +15,16 @@ export class Room {
   }
 
   examine() {
-    return `Id :  ${this.id} \n Name : ${this.name} : \n Description : ${this.description} \n Objects: ${this.objects} !`
+    // If it's not a trap we don't display the object description
+    let descRoomAndObjects: string = "" ;
+    
+    this.objects.forEach(object => {
+      if( object.name !== "Piège" ) {
+        descRoomAndObjects += object.examine();
+      }
+    });
+
+    return `Name : ${this.name} \n Description : ${this.description} \n Objects list : ${descRoomAndObjects}`
   }
 
   // Add an interactive object to the room

@@ -18,7 +18,7 @@ export class Trap implements IInteractiveObject {
   }
 
   examine() {
-    return `Id :  ${this.id} \n Name : ${this.name} : \n Description : ${this.description} \n Damage: ${this.damage} Weight : ${this.weight} !`
+    return `Name : ${this.name} \n Description : ${this.description} \n Damage : ${this.damage} Weight : ${this.weight}`
   }
 
   use(player : Player) {

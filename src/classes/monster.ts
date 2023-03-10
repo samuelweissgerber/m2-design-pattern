@@ -15,7 +15,7 @@ export class Monster extends Character {
   }
 
   examine() {
-    return `Id :  ${this.id} \n Name : ${this.name} : \n Description : ${this.description} \n Inventory: ${this.inventory} \n Current life points ${this.currentLP} \n Maximum life points ${this.maxLP} !`
+    return `Name : ${this.name} \n Description : ${this.description} \n Inventory: ${this.inventory} \n Current life points ${this.currentLP} \n Maximum life points ${this.maxLP}`
   }
   
   attack(ennemy: Character, weapon: Weapon) {
