@@ -1,0 +1,32 @@
+{
+    "treasure": [
+        {
+            "name": "Petit coffre",
+            "description": "Vous ouvrez le coffre, de l'or. De nombreuses pièces d'or. Une récompense éléchante ! Mais qui pèse son poids...",
+            "weight": null,
+            "inventory": [
+                {
+                    "type": "ressource",
+                    "name": "bourse de pièces",
+                    "valeur": 30,
+                    "weight": 5
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "choices",
+                    "choices": [
+                        {
+                            "type": "takeable",
+                            "name": "Prendre le contenu du coffre"
+                        },
+                        {
+                            "type": "next",
+                            "name": "Laisser le contenu dans le cofffre"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
