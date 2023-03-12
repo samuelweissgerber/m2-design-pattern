@@ -9,9 +9,7 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<Controllers room={room}></Controllers>
-				<p>Site de staging React</p>
+				<Controllers room = { rooms[roomIndex] } roomInventory={ rooms[roomIndex].objects.map(el => getInventory(el))} player={players[0]} nextRoom={rooms[roomIndex + 1]} setRoomIndex={incrementRoomIndex}></Controllers>
 			</header>
 		</div>
 	)

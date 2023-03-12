@@ -6,7 +6,8 @@
 
 .App-header {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding: 20%;
   align-items: center;
   justify-content: space-around;
   font-size: calc(10px + 2vmin);
