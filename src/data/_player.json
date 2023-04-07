@@ -5,8 +5,8 @@
             "name": "Bardeid",
             "race": "Humain",
             "currentRoom": null,
-            "currentLP": 40,
-            "maxLP": 40,
+            "currentLP": 16,
+            "maxLP": 16,
             "weight": 70,
             "inventory": [
                 {
@@ -28,8 +28,8 @@
             "name": "Althaea",
             "race": "Elfe",
             "currentRoom": null,
-            "currentLP": 30,
-            "maxLP": 30,
+            "currentLP": 13,
+            "maxLP": 13,
             "weight": 55,
             "inventory": [
                 {
@@ -39,6 +39,25 @@
                 {
                     "type": "armors",
                     "id": 0
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Thorin",
+            "race": "Nain",
+            "currentRoom": null,
+            "currentLP": 18,
+            "maxLP": 18,
+            "weight": 85,
+            "inventory": [
+                {
+                    "type": "weapons",
+                    "id": 2
+                },
+                {
+                    "type": "armors",
+                    "id": 2
                 }
             ]
         }
