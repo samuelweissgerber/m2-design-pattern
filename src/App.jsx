@@ -21,28 +21,26 @@ import { useState } from "react"
 function App() {
 
 	const [roomIndex, setRoomIndex] = useState(0)
-	const incrementRoomIndex = () => setRoomIndex( el => ++el)
+	const incrementRoomIndex = () => setRoomIndex(el => ++el)
 
-	// Instantiate Rooms
-	const armorsData = [];
-	armorsJson.armor.map(armor => armorsData.push(new Armor(armor.id, armor.name, armor.description, armor.protection, armor.weight)));
-
-
-	// Instantiate Weapons
-	const weaponsData = [];
-	weaponsJson.weapon.map(weapon => weaponsData.push(new Weapon(weapon.id, weapon.name, weapon.description, weapon.damage, weapon.weight)));
-
-	const rooms = [];
-	roomsJson.room.map(room => rooms.push( new Room(room.id, room.name, room.description, room.objects)))
+	//
+	const armorsData = []
+	const riddles = []
+	const weaponsData = []
+	const rooms = []
+	const players = []
+ 	const monsters = []
+	const traps = []
+	const treasures = []
 
 	const getInventory = (object) => {
 		switch (object.type) {
 			case "weapons":
 				return weaponsData[object.id]
-				break;
+				break
 			case "armors":
 				return armorsData[object.id]
-				break;
+				break
 			case "monster":
 				return monsters[object.id]
 				break
@@ -55,32 +53,38 @@ function App() {
 			case "treasure":
 				return treasures[object.id]
 				break
+			case "player":
+				return players[object.id]
+				break
 			default:
 				return {}
-				break;
+				break
 		}
 	}
 
-	const players = [];
-	playersJson.player.map(player => players.push( new Player(player.id, rooms[0], player.currentLP, player.weight, [...player.inventory.map(el => getInventory(el))])))
+	// Instantiate Rooms
 	
- 	const monsters = [];
-	 monstersJson.monster.map(monster => monsters.push( new Monster(monster.id,monster.name, monster.currentLP, monster.weight, monster.description, [...monster.inventory.map(el => getInventory(el))])))
-	 
+	armorsJson.armor.map(armor => armorsData.push(new Armor(armor.id, armor.name, armor.description, armor.protection, armor.weight)))
 
-	const riddles = [];
+	// Instantiate Weapons
+	weaponsJson.weapon.map(weapon => weaponsData.push(new Weapon(weapon.id, weapon.name, weapon.description, weapon.damage, weapon.weight)))
+
 	riddlesJson.riddle.map(riddle => riddles.push( new Riddle(riddle.id, riddle.question, riddle.answer, riddle.weight, riddle.reward)))
 
-	const traps = [];
 	trapsJson.trap.map(trap => traps.push( new Trap(trap.id, trap.description, trap.damage, trap.weight)))
 	
-	const treasures = [];
-	treasuresJson.treasure.map(treasure => treasures.push( new Treasure(treasure.id, treasure.name, treasure.description, treasure.weight, treasure.inventory.map(el => getInventory(el)))))
+	treasuresJson.treasure.map(treasure => treasures.push(new Treasure(treasure.id, treasure.name, treasure.description, treasure.weight, treasure.inventory.map(el => getInventory(el)))))
+	
+	monstersJson.monster.map(monster => monsters.push(new Monster(monster.id, monster.name, monster.currentLP, monster.weight, monster.description, [...monster.inventory.map(el => getInventory(el))])))
+	
+	playersJson.player.map(player => players.push(new Player(player.id,player.type, player.name, rooms[0], player.currentLP, player.weight, [...player.inventory.map(el => getInventory(el))])))
+
+	roomsJson.room.map(room => rooms.push(new Room(room.id, room.name, room.description, [...room.objects.map(el => getInventory(el))])))
 
 	return (
 		<div className="App">
 			<header className="App-header">
-				<Controllers roomInventory={rooms[roomIndex].objects.map(el => getInventory(el))} player={players[0]} nextRoom={rooms[roomIndex + 1]} setRoomIndex={incrementRoomIndex}></Controllers>
+				<Controllers room = { rooms[roomIndex] } player={players[0]} nextRoom={rooms[roomIndex + 1]} setRoomIndex={incrementRoomIndex} endGame={() => setRoomIndex(9)}></Controllers>
 			</header>
 		</div>
 	)

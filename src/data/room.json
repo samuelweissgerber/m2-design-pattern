@@ -1,71 +1,108 @@
 {
-    "room": [
-        {
-            "id": 0,
-            "name": "Entrée des ruines",
-            "description": "Vous arrivez devant les ruines où le voleur s'est réfugié.",
-            "objects": [
-                {
-                    "type": "monster",
-                    "id": 0
-                }
-            ]
-        },
-        {
-            "id": 1,
-            "name": "Couloir",
-            "description": "Vous decendez dans le couloir et vous vous enfoncez dans les profondeurs de la Terre. Vous finnissez par apercevoir une porte, cependant, une statue garde l'entrée. Une statue qui, dès que vous arrivez à son niveau, parlera. Une voie rauque rompt le lourd silence du couloir et dis",
-            "objects": [
-                {
-                    "type": "riddle",
-                    "id": 0
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "name": "Salle secrète : Petit coffre",
-            "description": "La statue se déplace et laisse apparaitre un coffre dissimulé.",
-            "objects": [
-                {
-                    "type": "treasure",
-                    "id": 0
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "name": "Salle vide piégée",
-            "description": "Une salle entièrement vide dont le sol est recouvert de dalle en pierre. Deux petites torches trônent d'une part et d'autre de la porte de l'autre côté de la pièce.",
-            "objects": [
-                {
-                    "type": "trap",
-                    "id": 0
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "name": "Salle du boss",
-            "description": "Vous ouvrez la porte, une pièce sombre. Un courant d'air glacial vous traverse le corps, vous frissonnez.",
-            "objects": [
-                {
-                    "type": "monster",
-                    "id": 1
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "name": "Fin de l'aventure",
-            "description": "Vous avez réussi à reprendre le sceptre et à le rendre à son propriétaire qui vous est désormais redevable. Félicitation aventurier cette première mission est un succès !",
-            "objects": []
-        },
-        {
-            "id": 6 ,
-            "name": "Début de l'aventure",
-            "description": "Le roi a besoin de toi ! Quelqu'un s'est introduit dans son château la nuit dernière et à dérobé le sceptre magique des rois 😱 Vite il faut le récupérer !",
-            "objects": []
-        }
-    ]
+	"room": [
+		{
+			"id": 0,
+			"name": "Début de l'aventure",
+			"description": "Bienvenue dans ce jeu d'aventure ! Vous vous retrouvez plongé dans un monde mystérieux et dangereux, rempli d'énigmes à résoudre et de défis à relever. Votre mission est de découvrir tous les secrets de ce monde et devenir un héros légendaire.",
+			"objects": []
+		},
+		{
+			"id": 1,
+			"name": "Player",
+			"description": "Choisi ton joueur",
+			"objects": [
+				{
+					"type": "player",
+					"id": 0
+				},
+				{
+					"type": "player",
+					"id": 1
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 0
+				}
+			]
+		},
+		{
+			"id": 3,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 1
+				}
+			]
+		},
+		{
+			"id": 4,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 2
+				}
+			]
+		},
+		{
+			"id": 5,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 3
+				}
+			]
+		},
+		{
+			"id": 6,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 4
+				}
+			]
+		},
+		{
+			"id": 7,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 5
+				}
+			]
+		},
+		{
+			"id": 8,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 6
+				}
+			]
+		},
+		{
+			"id": 9,
+			"name": "Fin de l'aventure",
+			"description": "C'est la fin de votre périple",
+			"objects": []
+		}
+	]
 }

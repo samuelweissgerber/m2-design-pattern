@@ -1,64 +1,48 @@
 {
-    "player": [
-        {
-            "id": 0,
-            "name": "Bardeid",
-            "race": "Humain",
-            "currentRoom": null,
-            "currentLP": 16,
-            "maxLP": 16,
-            "weight": 70,
-            "inventory": [
-                {
-                    "type": "weapons",
-                    "id": 0
-                },
-                {
-                    "type": "armors",
-                    "id": 1
-                },
-                {
-                    "type": "armors",
-                    "id": 3
-                }
-            ]
-        },
-        {
-            "id": 1,
-            "name": "Althaea",
-            "race": "Elfe",
-            "currentRoom": null,
-            "currentLP": 13,
-            "maxLP": 13,
-            "weight": 55,
-            "inventory": [
-                {
-                    "type": "weapons",
-                    "id": 2
-                },
-                {
-                    "type": "armors",
-                    "id": 0
-                }
-            ]
-        },
-        {   "id": 2,
-            "name": "Thorin",
-            "race": "Nain",
-            "currentRoom": null,
-            "currentLP": 18,
-            "maxLP": 18,
-            "weight": 85,
-            "inventory": [
-                {
-                    "type": "weapons",
-                    "id": 2
-                },
-                {
-                    "type": "armors",
-                    "id": 2
-                }
-            ]
-        }
-    ]
+	"player": [
+		{
+			"id": 0,
+			"type": "player",
+			"name": "Bardeid",
+			"race": "Humain",
+			"currentRoom": null,
+			"currentLP": 40,
+			"maxLP": 40,
+			"weight": 70,
+			"inventory": [
+				{
+					"type": "weapons",
+					"id": 0
+				},
+				{
+					"type": "armors",
+					"id": 1
+				},
+				{
+					"type": "armors",
+					"id": 3
+				}
+			]
+		},
+		{
+			"id": 1,
+			"type": "player",
+			"name": "Althaea",
+			"race": "Elfe",
+			"currentRoom": null,
+			"currentLP": 30,
+			"maxLP": 30,
+			"weight": 55,
+			"inventory": [
+				{
+					"type": "weapons",
+					"id": 2
+				},
+				{
+					"type": "armors",
+					"id": 0
+				}
+			]
+		}
+	]
 }

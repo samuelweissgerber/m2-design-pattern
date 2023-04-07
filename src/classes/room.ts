@@ -68,9 +68,13 @@ export class Room {
 	getDescription() {
 		let description = this.description
 		if (this.objects.length > 0) {
-			description += "\nIl y a ici :"
-			this.objects.map((obj) =>
-				obj.name !== "piège" ? (description += "\n - " + obj.name) : "",
+			description += "\nIl y a ici : \n"
+			this.objects.forEach((obj) =>
+			{
+				description += obj.type ? `\n ${obj.type}` : ""
+				description += obj.name ? `\n ${obj.name}` : ""
+			}
+
 			)
 		}
 		return description

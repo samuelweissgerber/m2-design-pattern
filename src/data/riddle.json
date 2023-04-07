@@ -2,24 +2,72 @@
     "riddle": [
         {
             "id": 0,
-            "name": "Enigme du sphinx - 4 saisons",
+            "name": "Enigme 1",
+            "question": "Je serai hier, j'étais demain. Qui suis-je ?",
+            "weight": null,
+            "answer": "aujourd'hui",
+            "interactions": {
+                "type": "riddle"
+            }
+        },
+        {
+            "id": 1,
+            "name": "Enigme 2",
             "question": "Au printemps , 4 piliers me soutiennent. A l'été, deux d'entre eux sont tombés. A l'automne un troisième a poussé. Mais à l'hiver les 4 se sont effondrés. Qui suis-je ?",
             "weight": null,
             "answer": "homme",
             "interactions": {
-                "type": "riddle",
-                "answer": [
-                    {
-                        "isCorrect": true,
-                        "type": "goTo",
-                        "idRoom": 2
-                    },
-                    {
-                        "isCorrect": false,
-                        "type": "goTo",
-                        "idRoom": 3
-                    }
-                ]
+                "type": "riddle"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Enigme 3",
+            "question": "Connu pour ses galeries, Et le ton de son gris, Elle évoque la mauvaise vision, Et c'est un excellent espion. Qui suis-je ?",
+            "weight": null,
+            "answer": "taupe",
+            "interactions": {
+                "type": "riddle"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Enigme 4",
+            "question": "Je détruit tout : os, chair et vie. Jamais je ne me repose car je suis infini. Ni l'acier des armes, ni la roche des montagnes ne me résistent. Dévoreur sans fin, mon appétit n'a pas de limite. Que suis-je ?",
+            "weight": null,
+            "answer": "temps",
+            "interactions": {
+                "type": "riddle"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Enigme 5",
+            "question": "Je suis si fragile que lorsque l'on prononce mon nom, je meurs. Qui suis-je ?",
+            "weight": null,
+            "answer": "silence",
+            "interactions": {
+                "type": "riddle"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Enigme 6",
+            "question": "Sans voix, je crie. Sans aile, je voltige. Sans dents, je mord. Sans bouche, je murmure. Qui suis-je ?",
+            "weight": null,
+            "answer": "vent",
+            "interactions": {
+                "type": "riddle"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Enigme 7",
+            "question": "Qu'est-ce qu'une chauve-souris avec une perruque ?",
+            "weight": null,
+            "answer": "souris",
+            "interactions": {
+                "type": "riddle"
             }
         }
     ]
