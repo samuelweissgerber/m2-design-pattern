@@ -1,26 +1,18 @@
 .App {
-  width: 50%;
-  margin: 50px auto;
-  background-color: white;
-}
-
-.App-header {
+  padding: 72px 112px;
   display: flex;
   flex-direction: column;
-  padding: 20%;
   align-items: center;
   justify-content: space-around;
-  font-size: calc(10px + 2vmin);
-  color: black;
-  border-bottom: 1px solid black;
+  font-size: 20px;
 }
 
-main{
+main {
   padding: 2em;
   border-bottom: 1px solid black;
 }
 
-footer{
+footer {
   padding: 2em;
   display: flex;
   flex-direction: row;
