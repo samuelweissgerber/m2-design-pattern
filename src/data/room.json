@@ -28,7 +28,7 @@
             "description": "La statue se déplace et laisse apparaitre un coffre dissimulé.",
             "objects": [
                 {
-                    "type": "treassure",
+                    "type": "treasure",
                     "id": 0
                 }
             ]
@@ -57,15 +57,15 @@
         },
         {
             "id": 5,
-            "name": "Début de l'aventure",
-            "description": "Le roi a besoin de toi ! Quelqu'un s'est introduit dans son château la nuit dernière et à dérobé le sceptre magique des rois 😱 Vite il faut le récupérer !",
-            "objects": null
-        },
-        {
-            "id": 6,
             "name": "Fin de l'aventure",
             "description": "Vous avez réussi à reprendre le sceptre et à le rendre à son propriétaire qui vous est désormais redevable. Félicitation aventurier cette première mission est un succès !",
-            "objects": null
+            "objects": []
+        },
+        {
+            "id": 6 ,
+            "name": "Début de l'aventure",
+            "description": "Le roi a besoin de toi ! Quelqu'un s'est introduit dans son château la nuit dernière et à dérobé le sceptre magique des rois 😱 Vite il faut le récupérer !",
+            "objects": []
         }
     ]
 }

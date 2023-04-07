@@ -37,7 +37,7 @@ const Controllers = ({ room, roomInventory, player, nextRoom, setRoomIndex }: {r
           {obj.inputType === "multiple" && (
             <>
               {obj?.choices.map((el: string) => (
-                <button>{el}</button>
+                <button onClick={interactBoolean}>{el}</button>
               ))}
             </>
           )}

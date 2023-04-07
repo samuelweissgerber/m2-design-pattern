@@ -1,7 +1,9 @@
 import { Player, Room } from "."
-import { IInteractiveObject, InputType } from "../interfaces"
+import { IInteractiveObject, InputType } from "../interfaces/index.ts"
 
-// Example of interactive object for the second room
+/**
+ * Represents a riddle in the game
+ */
 export class Riddle implements IInteractiveObject {
 	id: number
 	name: string
@@ -11,6 +13,14 @@ export class Riddle implements IInteractiveObject {
 	reward: IInteractiveObject[] | string | Room
 	inputType: InputType
 
+  /**
+	 * Creates a new riddle
+	 * @param id - The unique identifier for the riddle
+	 * @param question - The question asked by the riddle
+	 * @param answer - The answer to the riddle
+	 * @param weight - The weight of the riddle (default 0)
+	 * @param reward - The reward for solving the riddle
+	 */
 	constructor(
 		id: number,
 		question: string,
@@ -22,14 +32,24 @@ export class Riddle implements IInteractiveObject {
 		this.name = "Énigme"
 		this.question = question
 		this.answer = answer
+		this.weight = weight
 		this.reward = reward
 		this.inputType = InputType.Prompt
 	}
 
+  /**
+	 * Returns a string with information about the riddle
+	 * @returns A string with information about the riddle
+	*/
   examine() {
     return `Name : ${this.name} \n Question : ${this.question} \n Answer : ${this.answer} \n Reward ${this.reward}`
   }
 
+  /**
+	 * Solves the riddle and gives the player a reward if the answer is correct
+	 * @param player - The player attempting to solve the riddle
+	 * @returns A message indicating whether the answer was correct and if a reward was given
+	*/
 	use(player: Player) {
 		const input = prompt(this.question)
 		if (input === this.answer) {
