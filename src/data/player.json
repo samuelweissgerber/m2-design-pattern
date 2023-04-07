@@ -1,46 +1,48 @@
 {
-    "player": [
-        {
-            "id": 0,
-            "name": "Bardeid",
-            "race": "Humain",
-            "currentRoom": null,
-            "currentLP": 40,
-            "maxLP": 40,
-            "weight": 70,
-            "inventory": [
-                {
-                    "type": "weapons",
-                    "id": 0
-                },
-                {
-                    "type": "armors",
-                    "id": 1
-                },
-                {
-                    "type": "armors",
-                    "id": 3
-                }
-            ]
-        },
-        {
-            "id": 1,
-            "name": "Althaea",
-            "race": "Elfe",
-            "currentRoom": null,
-            "currentLP": 30,
-            "maxLP": 30,
-            "weight": 55,
-            "inventory": [
-                {
-                    "type": "weapons",
-                    "id": 2
-                },
-                {
-                    "type": "armors",
-                    "id": 0
-                }
-            ]
-        }
-    ]
+	"player": [
+		{
+			"id": 0,
+			"type": "player",
+			"name": "Bardeid",
+			"race": "Humain",
+			"currentRoom": null,
+			"currentLP": 40,
+			"maxLP": 40,
+			"weight": 70,
+			"inventory": [
+				{
+					"type": "weapons",
+					"id": 0
+				},
+				{
+					"type": "armors",
+					"id": 1
+				},
+				{
+					"type": "armors",
+					"id": 3
+				}
+			]
+		},
+		{
+			"id": 1,
+			"type": "player",
+			"name": "Althaea",
+			"race": "Elfe",
+			"currentRoom": null,
+			"currentLP": 30,
+			"maxLP": 30,
+			"weight": 55,
+			"inventory": [
+				{
+					"type": "weapons",
+					"id": 2
+				},
+				{
+					"type": "armors",
+					"id": 0
+				}
+			]
+		}
+	]
 }

@@ -25,7 +25,7 @@
             "name": "Enigme 3",
             "question": "Connu pour ses galeries, Et le ton de son gris, Elle évoque la mauvaise vision, Et c'est un excellent espion. Qui suis-je ?",
             "weight": null,
-            "answer": "homme",
+            "answer": "taupe",
             "interactions": {
                 "type": "riddle"
             }

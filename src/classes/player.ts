@@ -1,3 +1,4 @@
+import { Script } from "vm"
 import { IInteractiveObject } from "../interfaces"
 import { Character } from "./character.ts"
 import { Room } from "./room"
@@ -8,6 +9,8 @@ import { Weapon } from "./takables/weapon.ts"
 // Classe pour représenter le joueur dans le jeu
 export class Player {
 	id: number
+	type: string
+	name: string
 	currentRoom: Room
 	currentLP: number
 	maxLP: number
@@ -15,8 +18,10 @@ export class Player {
 	protection: number
 	inventory: any[]
 
-	constructor(id: number, startingRoom: Room, LP: number, weight: number = 0, inventory = []) {
+	constructor(id: number,type: string, name: string, startingRoom: Room, LP: number, weight: number = 0, inventory = []) {
 		this.id = id
+		this.type = type
+		this.name = name
 		this.currentRoom = startingRoom
 		this.currentLP = LP
 		this.maxLP = LP
