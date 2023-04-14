@@ -53,6 +53,14 @@ export class Room {
 		this.objects.push(object)
 	}
 
+	/**
+    * Adds an interactive object to the room.
+    * @param object - The interactive object to add to the room.
+  */
+	addObjects(objects: IInteractiveObject[]) {
+		this.objects = objects
+	}
+
   /**
     * Removes an interactive object from the room.
     * @param object - The interactive object to remove from the room.
