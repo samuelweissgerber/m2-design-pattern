@@ -13,20 +13,33 @@ const Controllers = ({
   const [response, setResponse] = useState('')
   const [player, setPlayer] = useState({})
 
-  const testRiddle = obj => {
-    const go = obj.answer === response
-    if (go) {
-      setRoomIndex()
-    } else {
-      player.setCurrentLP(player.currentLP - 10)
-      if (player.currentLP <= 0) {
-        endGame()
+  const testRiddle = (obj: { answer: string }) => {
+    if (response !== '') {
+      const go = obj.answer === response
+      if (go) {
+        setRoomIndex()
+      } else {
+        player.setCurrentLP(player.currentLP - 10)
+        if (player.currentLP <= 0) {
+          endGame()
+        } else {
+          // Add shake class to heart container
+          const heart_container = document.querySelector(
+            '.lifepoint__container'
+          )
+          if (heart_container) {
+            heart_container.classList.add('lifepoint__container--shake')
+            setTimeout(() => {
+              heart_container.classList.remove('lifepoint__container--shake')
+            }, 1000)
+          }
+        }
       }
+      setResponse('')
     }
-    setResponse('')
   }
 
-  const selectPlayer = id => {
+  const selectPlayer = (id: any) => {
     setPlayer(room.objects.find(el => el.id === id))
     setRoomIndex()
   }
@@ -72,11 +85,19 @@ const Controllers = ({
             <>
               <p>{obj.question}</p>
               <input
+                className='answer__input'
+                placeholder='Réponse'
                 value={response}
                 onKeyDown={e => (e.code === 'Enter' ? testRiddle(obj) : null)}
                 onChange={e => setResponse(e.target.value)}
               />
-              <button onClick={e => testRiddle(obj)} className='button'>
+              <button
+                disabled={response === '' ? true : false}
+                onClick={e => {
+                  testRiddle(obj)
+                }}
+                className='button'
+              >
                 {' '}
                 Valider{' '}
               </button>
@@ -104,13 +125,20 @@ const Controllers = ({
       {room.id === 9 &&
         (player.currentLP <= 0 ? (
           <>
-            <p>T'es mort</p>
-            <a href='/'>Rejouer</a>
+            <h1>ECHEC</h1>
+            <div className='skull__container'>
+              <div className='skull'></div>
+            </div>
+            <a href='/' className='button'>
+              Rejouer
+            </a>
           </>
         ) : (
           <>
             <p> Bravo champion</p>
-            <a href='/'>Rejouer</a>
+            <a href='/' className='button'>
+              Rejouer
+            </a>
           </>
         ))}
     </>

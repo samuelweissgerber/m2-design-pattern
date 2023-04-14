@@ -1,10 +1,13 @@
 .App {
+  height: 100vh;
   padding: 72px 112px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  font-size: 20px;
+  justify-content: flex-start;
+  row-gap: 35px;
+  font-size: 22px;
+  text-align: center;
 }
 
 main {
