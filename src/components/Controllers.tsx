@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, Fragment } from "react"
 import { Player } from "../classes"
 import { getRoom } from "../helpers/index.ts"
 import { data } from "../helpers/data.ts"
@@ -7,12 +7,12 @@ const Controllers = (): JSX.Element => {
 	const { players, rooms } = data
 	const [LEVEL, setLEVEL] = useState(0)
 	const [resolvedRiddle, setResolvedRiddle] = useState([])
+	const [timeLeft, setTimeLeft] = useState(0)
 
 	const [response, setResponse] = useState("")
 	const [player, setPlayer] = useState({})
 	const [typeCurrentRoom, setTypeCurrentRoom] = useState("Start")
 	const [room, setRoom] = useState(getRoom(0))
-	const [time, setTime] = useState(180)
 
 	const getRandomId = (): Number | undefined => {
 		const pre = Math.floor(Math.random() * rooms.length)
@@ -22,6 +22,32 @@ const Controllers = (): JSX.Element => {
 			return pre
 		}
 	}
+
+	useEffect(() => {
+		if (timeLeft <= 0 && typeCurrentRoom === "Game" && LEVEL === 20) {
+			player.setCurrentLP(0)
+			setTypeCurrentRoom("End")
+			return
+		}
+		// `setInterval` pour exécuter une fonction qui diminue le temps restant de 1 chaque seconde
+		const interval = setInterval(() => {
+			setTimeLeft(timeLeft - 1)
+		}, 1000)
+
+		// `clearInterval` pour nettoyer l'intervalle
+		// Lorsqu'on met un return dans un useEffect le return est exécuté lorsque le composant est démonté
+		return () => clearInterval(interval)
+	}, [timeLeft])
+
+	const formatTime = (time) => {
+		const minutes = Math.floor(time / 60)
+		const seconds = time % 60
+		return `${minutes.toString().padStart(2, "0")}:${seconds
+			.toString()
+			.padStart(2, "0")}`
+	}
+
+	//console.log(room)
 
 	const testRiddle = (obj) => {
 		if (obj.use(response)) {
@@ -44,24 +70,6 @@ const Controllers = (): JSX.Element => {
 		setPlayer(p as Player)
 		setTypeCurrentRoom("Game")
 	}
-
-	const launchTimer = () => {
-		
-		setTimeout(() => {
-			// Infinite loop => explain the error please Ramus
-			setTime((time) => time--)
-		}, 1000)
-		console.log(time)
-		time !== 0 ? launchTimer() : console.log("End")
-	}
-
-	useEffect (() => {
-		if (typeCurrentRoom === "Game") {
-			console.log("current room game")
-			launchTimer()		
-		}
-	}, [typeCurrentRoom])
-
 
 	return (
 		<>
@@ -91,43 +99,43 @@ const Controllers = (): JSX.Element => {
 						<button onClick={() => setLEVEL(15)} className="button">
 							Moyen
 						</button>
-						<button onClick={() => setLEVEL(20)} className="button">
+						<button onClick={() => setLEVEL(18)} className="button">
 							Difficile
 						</button>
-						<button onClick={() => {
+						<button
+							onClick={() => {
 								setLEVEL(20)
-								setTime(180)
-							}	
-						} className="button">
+								setTimeLeft(180)
+							}}
+							className="button">
 							Hardcore
 						</button>
 					</p>
 					<p>Choisi ton joueur</p>
 					<p>
-						{players.map((player) => (
-							<>
-								<button
-									onClick={() => selectPlayer(player.id)}
-									className="button"
-									disabled={LEVEL === 0}>
-									{player.name}
-								</button>
-							</>
+						{players.map((player, key) => (
+							<button
+								key={key}
+								onClick={() => selectPlayer(player.id)}
+								className="button"
+								disabled={LEVEL === 0}>
+								{player.name}
+							</button>
 						))}
 					</p>
 				</>
 			)}
 			{typeCurrentRoom === "Game" && (
 				<>
+					{LEVEL === 20 && <h1>Time Left: {formatTime(timeLeft)}</h1>}
 					<div className="lifepoint__container">
 						<div className="lifepoint__heart">
 							<p className="lifepoint__number">{player.currentLP ?? 0}</p>
 						</div>
 					</div>
 					{room.objects.map((obj: any, key: number) => (
-						<>
+						<Fragment key={key}>
 							<p>{room.getDescription()}</p>
-							<p>{time}</p>
 							{obj.inputType === "prompt" && (
 								<>
 									<p>{obj.question}</p>
@@ -150,7 +158,7 @@ const Controllers = (): JSX.Element => {
 									</button>
 								</>
 							)}
-						</>
+						</Fragment>
 					))}
 				</>
 			)}
