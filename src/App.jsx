@@ -84,7 +84,7 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<Controllers room = { rooms[roomIndex] } player={players[0]} nextRoom={rooms[roomIndex + 1]} setRoomIndex={incrementRoomIndex} endGame={() => setRoomIndex(9)}></Controllers>
+				<Controllers room = { rooms[roomIndex] } player={players[0]} players={players} nextRoom={rooms[roomIndex + 1]} setRoomIndex={incrementRoomIndex}></Controllers>
 			</header>
 		</div>
 	)
