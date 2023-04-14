@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Player } from "../classes"
 import { getRoom } from "../helpers/index.ts"
 import { data } from "../helpers/data.ts"
@@ -12,6 +12,7 @@ const Controllers = (): JSX.Element => {
 	const [player, setPlayer] = useState({})
 	const [typeCurrentRoom, setTypeCurrentRoom] = useState("Start")
 	const [room, setRoom] = useState(getRoom(0))
+	const [time, setTime] = useState(180)
 
 	const getRandomId = (): Number | undefined => {
 		const pre = Math.floor(Math.random() * rooms.length)
@@ -22,7 +23,6 @@ const Controllers = (): JSX.Element => {
 		}
 	}
 
-	console.log(resolvedRiddle)
 	const testRiddle = (obj) => {
 		if (obj.use(response)) {
 			if (resolvedRiddle.length === LEVEL) {
@@ -44,6 +44,24 @@ const Controllers = (): JSX.Element => {
 		setPlayer(p as Player)
 		setTypeCurrentRoom("Game")
 	}
+
+	const launchTimer = () => {
+		
+		setTimeout(() => {
+			// Infinite loop => explain the error please Ramus
+			setTime((time) => time--)
+		}, 1000)
+		console.log(time)
+		time !== 0 ? launchTimer() : console.log("End")
+	}
+
+	useEffect (() => {
+		if (typeCurrentRoom === "Game") {
+			console.log("current room game")
+			launchTimer()		
+		}
+	}, [typeCurrentRoom])
+
 
 	return (
 		<>
@@ -76,6 +94,13 @@ const Controllers = (): JSX.Element => {
 						<button onClick={() => setLEVEL(20)} className="button">
 							Difficile
 						</button>
+						<button onClick={() => {
+								setLEVEL(20)
+								setTime(180)
+							}	
+						} className="button">
+							Hardcore
+						</button>
 					</p>
 					<p>Choisi ton joueur</p>
 					<p>
@@ -102,6 +127,7 @@ const Controllers = (): JSX.Element => {
 					{room.objects.map((obj: any, key: number) => (
 						<>
 							<p>{room.getDescription()}</p>
+							<p>{time}</p>
 							{obj.inputType === "prompt" && (
 								<>
 									<p>{obj.question}</p>
