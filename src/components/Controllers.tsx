@@ -21,19 +21,23 @@ const Controllers = (): JSX.Element => {
       return pre
     }
   }
+	
+	const testRiddle = (obj) => {
+		if (obj.use(response)) {
+			if (obj.isFirstAnswer) {
+				player.setCurrentLP(player.currentLP + 5)
+			}
 
-  const testRiddle = obj => {
-    if (obj.use(response)) {
-      if (resolvedRiddle.length === LEVEL) {
-        setTypeCurrentRoom('End')
-      }
-      setRoom(getRoom(getRandomId()))
-      setResolvedRiddle([...resolvedRiddle, obj.id])
-    } else {
-      player.setCurrentLP(player.currentLP - 10)
-      if (player.currentLP <= 0) {
-        setTypeCurrentRoom('End')
-      } else {
+			if (resolvedRiddle.length === LEVEL) {
+				setTypeCurrentRoom("End")
+			}
+			setRoom(getRoom(getRandomId()))
+			setResolvedRiddle([...resolvedRiddle, obj.id])
+		} else {
+			player.setCurrentLP(player.currentLP - 10)
+			if (player.currentLP <= 0) {
+				setTypeCurrentRoom("End")
+			} else {
         // Add shake class to heart container
         const heart_container = document.querySelector('.lifepoint__container')
         if (heart_container) {
@@ -43,9 +47,10 @@ const Controllers = (): JSX.Element => {
           }, 1000)
         }
       }
-    }
-    setResponse('')
-  }
+		}
+		obj.setIsFirstAnswer()
+		setResponse("")
+	}
 
   const selectPlayer = id => {
     const p = players.find(el => el.id === id)
