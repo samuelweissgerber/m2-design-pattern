@@ -76,6 +76,149 @@
 					"id": 6
 				}
 			]
+		},
+		{
+			"id": 7,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 7
+				}
+			]
+		},
+		{
+			"id": 8,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 8
+				}
+			]
+		},
+		{
+			"id": 9,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 9
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 10
+				}
+			]
+		},
+		{
+			"id": 11,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 11
+				}
+			]
+		},
+		{
+			"id": 12,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 12
+				}
+			]
+		},
+		{
+			"id": 13,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 13
+				}
+			]
+		},
+		{
+			"id": 14,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 14
+				}
+			]
+		},
+		{
+			"id": 15,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 15
+				}
+			]
+		},
+		{
+			"id": 16,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 16
+				}
+			]
+		},
+		{
+			"id": 17,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 17
+				}
+			]
+		},
+		{
+			"id": 18,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 18
+				}
+			]
+		},
+		{
+			"id": 19,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 19
+				}
+			]
 		}
 	]
 }
