@@ -47,7 +47,6 @@ const Controllers = (): JSX.Element => {
 
   return (
     <>
-      <p>{`Points de vie:  ${player.currentLP ?? 0}`}</p>
       {typeCurrentRoom === 'Start' && (
         <>
           <p>Début de l'aventure</p>
@@ -57,7 +56,12 @@ const Controllers = (): JSX.Element => {
             défis à relever. Votre mission est de découvrir tous les secrets de
             ce monde et devenir un héros légendaire.
           </p>
-          <button onClick={() => setTypeCurrentRoom('Player')}>Démarrer</button>
+          <button
+            onClick={() => setTypeCurrentRoom('Player')}
+            className='button'
+          >
+            Démarrer
+          </button>
         </>
       )}
       {typeCurrentRoom === 'Player' && (
@@ -66,7 +70,10 @@ const Controllers = (): JSX.Element => {
           <p>
             {players.map(player => (
               <>
-                <button onClick={() => selectPlayer(player.id)}>
+                <button
+                  onClick={() => selectPlayer(player.id)}
+                  className='button'
+                >
                   {player.name}
                 </button>
               </>
