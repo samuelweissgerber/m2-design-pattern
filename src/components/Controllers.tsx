@@ -22,9 +22,14 @@ const Controllers = (): JSX.Element => {
 		}
 	}
 
-	console.log(resolvedRiddle)
+	//console.log(room)
+	
 	const testRiddle = (obj) => {
 		if (obj.use(response)) {
+			if (obj.isFirstAnswer) {
+				player.setCurrentLP(player.currentLP + 5)
+			}
+
 			if (resolvedRiddle.length === LEVEL) {
 				setTypeCurrentRoom("End")
 			}
@@ -36,6 +41,7 @@ const Controllers = (): JSX.Element => {
 				setTypeCurrentRoom("End")
 			}
 		}
+		obj.setIsFirstAnswer()
 		setResponse("")
 	}
 

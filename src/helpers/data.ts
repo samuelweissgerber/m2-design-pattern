@@ -45,7 +45,7 @@ import monstersJson from "../data/monster.json"
 	// Instantiate Weapons
 	weaponsJson.weapon.map(weapon => weaponsData.push(new Weapon(weapon.id, weapon.name, weapon.description, weapon.damage, weapon.weight)))
 
-	riddlesJson.riddle.map(riddle => riddles.push( new Riddle(riddle.id, riddle.question, riddle.answer, riddle.weight, riddle.reward)))
+	riddlesJson.riddle.map(riddle => riddles.push( new Riddle(riddle.id, riddle.question, riddle.answer, riddle.weight, riddle.reward, riddle.isFirstAnswer)))
 
 	trapsJson.trap.map(trap => traps.push( new Trap(trap.id, trap.description, trap.damage, trap.weight)))
 	
