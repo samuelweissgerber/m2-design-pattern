@@ -46,17 +46,11 @@ export class Riddle implements IInteractiveObject {
   }
 
   /**
-	 * Solves the riddle and gives the player a reward if the answer is correct
-	 * @param player - The player attempting to solve the riddle
-	 * @returns A message indicating whether the answer was correct and if a reward was given
+	 * Solves the riddle and say if the answer is correct
+	 * @param reponse - The player attempting to solve the riddle
+	 * @returns if the answer is correct
 	*/
-	use(player: Player) {
-		const input = prompt(this.question)
-		if (input === this.answer) {
-			player.addItemToInventory(this)
-			return "Bravo, vous avez résolu l'énigme et avez reçu une clé en récompense !"
-		} else {
-			return "Désolé, ce n'est pas la bonne réponse..."
-		}
+	use(response: String): boolean {
+		return response === this.answer
 	}
 }

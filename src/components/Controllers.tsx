@@ -1,27 +1,27 @@
 import React, { useState } from 'react'
-import { Room } from '../classes'
+import { Player } from '../classes'
+import { getRoom } from '../helpers/index.ts'
+import { data } from '../helpers/data.ts'
 
-const Controllers = ({
-  room,
-  setRoomIndex,
-  endGame
-}: {
-  room: Room
-  setRoomIndex: Function
-  endGame: Function
-}): JSX.Element => {
+const Controllers = (): JSX.Element => {
+  const { players, rooms } = data
+
   const [response, setResponse] = useState('')
   const [player, setPlayer] = useState({})
+  const [typeCurrentRoom, setTypeCurrentRoom] = useState('Start')
+  const [room, setRoom] = useState(getRoom(0))
 
-  const testRiddle = (obj: { answer: string }) => {
+  const testRiddle = obj => {
     if (response !== '') {
-      const go = obj.answer === response
-      if (go) {
-        setRoomIndex()
+      if (obj.use(response)) {
+        if (room.id === rooms.length - 1) {
+          setTypeCurrentRoom('End')
+        }
+        setRoom(getRoom(room.id + 1))
       } else {
         player.setCurrentLP(player.currentLP - 10)
         if (player.currentLP <= 0) {
-          endGame()
+          setTypeCurrentRoom('End')
         } else {
           // Add shake class to heart container
           const heart_container = document.querySelector(
@@ -39,90 +39,81 @@ const Controllers = ({
     }
   }
 
-  const selectPlayer = (id: any) => {
-    setPlayer(room.objects.find(el => el.id === id))
-    setRoomIndex()
-  }
-
-  const interactBoolean = () => {
-    setRoomIndex()
+  const selectPlayer = id => {
+    const p = players.find(el => el.id === id)
+    setPlayer(p as Player)
+    setTypeCurrentRoom('Game')
   }
 
   return (
     <>
-      {room.id !== 0 && room.id !== 1 && room.id !== 9 && (
-        <div className='lifepoint__container'>
-          <div className='lifepoint__heart'>
-            <p className='lifepoint__number'>{player.currentLP ?? 0}</p>
+      <p>{`Points de vie:  ${player.currentLP ?? 0}`}</p>
+      {typeCurrentRoom === 'Start' && (
+        <>
+          <p>Début de l'aventure</p>
+          <p>
+            Bienvenue dans ce jeu d'aventure ! Vous vous retrouvez plongé dans
+            un monde mystérieux et dangereux, rempli d'énigmes à résoudre et de
+            défis à relever. Votre mission est de découvrir tous les secrets de
+            ce monde et devenir un héros légendaire.
+          </p>
+          <button onClick={() => setTypeCurrentRoom('Player')}>Démarrer</button>
+        </>
+      )}
+      {typeCurrentRoom === 'Player' && (
+        <>
+          <p>Choisi ton joueur</p>
+          <p>
+            {players.map(player => (
+              <>
+                <button onClick={() => selectPlayer(player.id)}>
+                  {player.name}
+                </button>
+              </>
+            ))}
+          </p>
+        </>
+      )}
+      {typeCurrentRoom === 'Game' && (
+        <>
+          <div className='lifepoint__container'>
+            <div className='lifepoint__heart'>
+              <p className='lifepoint__number'>{player.currentLP ?? 0}</p>
+            </div>
           </div>
-        </div>
-      )}
-
-      <p>{room.getDescription()}</p>
-
-      {room.id === 0 && (
-        <button onClick={() => setRoomIndex()} className='button'>
-          Démarrer
-        </button>
-      )}
-      {room.id === 1 && (
-        <p>
-          {room.objects.map(player => (
+          {room.objects.map((obj: any, key: number) => (
             <>
-              <button
-                onClick={() => selectPlayer(player.id)}
-                className='button'
-              >
-                {player.name}
-              </button>
+              <p>{room.getDescription()}</p>
+              {obj.inputType === 'prompt' && (
+                <>
+                  <p>{obj.question}</p>
+                  <input
+                    className='answer__input'
+                    placeholder='Réponse'
+                    value={response}
+                    onKeyDown={e =>
+                      e.code === 'Enter' ? testRiddle(obj) : null
+                    }
+                    onChange={e => setResponse(e.target.value)}
+                  />
+                  <button
+                    disabled={response === '' ? true : false}
+                    onClick={e => {
+                      testRiddle(obj)
+                    }}
+                    className='button'
+                  >
+                    Valider
+                  </button>
+                </>
+              )}
             </>
           ))}
-        </p>
-      )}
-      {room.objects.map((obj: any, key: number) => (
-        <>
-          {obj.inputType === 'prompt' && (
-            <>
-              <p>{obj.question}</p>
-              <input
-                className='answer__input'
-                placeholder='Réponse'
-                value={response}
-                onKeyDown={e => (e.code === 'Enter' ? testRiddle(obj) : null)}
-                onChange={e => setResponse(e.target.value)}
-              />
-              <button
-                disabled={response === '' ? true : false}
-                onClick={e => {
-                  testRiddle(obj)
-                }}
-                className='button'
-              >
-                {' '}
-                Valider{' '}
-              </button>
-            </>
-          )}
-          {/* {obj.inputType === "boolean" && (
-						<div>
-							<p>{obj.description}</p>
-							{obj.name === "Piège" && <p>{obj.name}</p>}
-							<button onClick={interactBoolean}>Joueur 1</button>
-							<button onClick={interactBoolean}>Joueur 2</button>
-						</div>
-					)} */}
-          {/* {obj.inputType === "multiple" && (
-						<>
-							{obj?.choices.map((el: string) => (
-								<button onClick={interactBoolean}>{el}</button>
-							))}
-						</>
-					)} */}
         </>
-      ))}
+      )}
 
-      {/* ENDING ROOM */}
-      {room.id === 9 &&
+      {/*  room de fin */}
+      {typeCurrentRoom === 'End' &&
         (player.currentLP <= 0 ? (
           <>
             <h1>ECHEC</h1>

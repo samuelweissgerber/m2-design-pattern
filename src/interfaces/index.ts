@@ -1,5 +1,3 @@
-import { Character } from "../classes"
-
 export enum InputType {
 	Prompt = "prompt",
 	Boolean = "boolean",
@@ -12,5 +10,5 @@ export interface IInteractiveObject {
 	name: string
 	weight: number
 	examine(): string
-	use(ennemy: Character, object: IInteractiveObject | null): string
+	use(object: any): any
 }
