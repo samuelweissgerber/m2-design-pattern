@@ -23,7 +23,6 @@ function App() {
 	const [roomIndex, setRoomIndex] = useState(0)
 	const incrementRoomIndex = () => setRoomIndex(el => ++el)
 
-	//
 	const armorsData = []
 	const riddles = []
 	const weaponsData = []
@@ -35,30 +34,14 @@ function App() {
 
 	const getInventory = (object) => {
 		switch (object.type) {
-			case "weapons":
-				return weaponsData[object.id]
-				break
-			case "armors":
-				return armorsData[object.id]
-				break
-			case "monster":
-				return monsters[object.id]
-				break
-			case "trap":
-				return traps[object.id]
-				break
-			case "riddle":
-				return riddles[object.id]
-				break
-			case "treasure":
-				return treasures[object.id]
-				break
-			case "player":
-				return players[object.id]
-				break
-			default:
-				return {}
-				break
+			case "weapons": return weaponsData[object.id]
+			case "armors": return armorsData[object.id]	
+			case "monster": return monsters[object.id]	
+			case "trap": return traps[object.id]	
+			case "riddle": return riddles[object.id]
+			case "treasure": return treasures[object.id]
+			case "player": return players[object.id]
+ 			default: return {}			
 		}
 	}
 
@@ -77,14 +60,15 @@ function App() {
 	
 	monstersJson.monster.map(monster => monsters.push(new Monster(monster.id, monster.name, monster.currentLP, monster.weight, monster.description, [...monster.inventory.map(el => getInventory(el))])))
 	
-	playersJson.player.map(player => players.push(new Player(player.id,player.type, player.name, rooms[0], player.currentLP, player.weight, [...player.inventory.map(el => getInventory(el))])))
-
 	roomsJson.room.map(room => rooms.push(new Room(room.id, room.name, room.description, [...room.objects.map(el => getInventory(el))])))
+
+	playersJson.player.map(player => players.push(new Player(player.id, player.type, player.name, rooms[0], player.currentLP, player.weight, [...player.inventory.map(el => getInventory(el))])))
+
 
 	return (
 		<div className="App">
 			<header className="App-header">
-				<Controllers room = { rooms[roomIndex] } player={players[0]} nextRoom={rooms[roomIndex + 1]} setRoomIndex={incrementRoomIndex} endGame={() => setRoomIndex(9)}></Controllers>
+				<Controllers players={ players } endGame={() => setRoomIndex(9)} getInventory={getInventory}></Controllers>
 			</header>
 		</div>
 	)
