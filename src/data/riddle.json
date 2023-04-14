@@ -1,74 +1,204 @@
 {
-    "riddle": [
-        {
-            "id": 0,
-            "name": "Enigme 1",
-            "question": "Je serai hier, j'étais demain. Qui suis-je ?",
-            "weight": null,
-            "answer": "aujourd'hui",
-            "interactions": {
-                "type": "riddle"
-            }
-        },
-        {
-            "id": 1,
-            "name": "Enigme 2",
-            "question": "Au printemps , 4 piliers me soutiennent. A l'été, deux d'entre eux sont tombés. A l'automne un troisième a poussé. Mais à l'hiver les 4 se sont effondrés. Qui suis-je ?",
-            "weight": null,
-            "answer": "homme",
-            "interactions": {
-                "type": "riddle"
-            }
-        },
-        {
-            "id": 2,
-            "name": "Enigme 3",
-            "question": "Connu pour ses galeries, Et le ton de son gris, Elle évoque la mauvaise vision, Et c'est un excellent espion. Qui suis-je ?",
-            "weight": null,
-            "answer": "taupe",
-            "interactions": {
-                "type": "riddle"
-            }
-        },
-        {
-            "id": 3,
-            "name": "Enigme 4",
-            "question": "Je détruit tout : os, chair et vie. Jamais je ne me repose car je suis infini. Ni l'acier des armes, ni la roche des montagnes ne me résistent. Dévoreur sans fin, mon appétit n'a pas de limite. Que suis-je ?",
-            "weight": null,
-            "answer": "temps",
-            "interactions": {
-                "type": "riddle"
-            }
-        },
-        {
-            "id": 4,
-            "name": "Enigme 5",
-            "question": "Je suis si fragile que lorsque l'on prononce mon nom, je meurs. Qui suis-je ?",
-            "weight": null,
-            "answer": "silence",
-            "interactions": {
-                "type": "riddle"
-            }
-        },
-        {
-            "id": 5,
-            "name": "Enigme 6",
-            "question": "Sans voix, je crie. Sans aile, je voltige. Sans dents, je mord. Sans bouche, je murmure. Qui suis-je ?",
-            "weight": null,
-            "answer": "vent",
-            "interactions": {
-                "type": "riddle"
-            }
-        },
-        {
-            "id": 6,
-            "name": "Enigme 7",
-            "question": "Qu'est-ce qu'une chauve-souris avec une perruque ?",
-            "weight": null,
-            "answer": "souris",
-            "interactions": {
-                "type": "riddle"
-            }
-        }
-    ]
+	"riddle": [
+		{
+			"id": 0,
+			"name": "Enigme 1",
+			"question": "Je serai hier, j'étais demain. Qui suis-je ?",
+			"weight": null,
+			"answer": "aujourd'hui",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 1,
+			"name": "Enigme 2",
+			"question": "Au printemps , 4 piliers me soutiennent. A l'été, deux d'entre eux sont tombés. A l'automne un troisième a poussé. Mais à l'hiver les 4 se sont effondrés. Qui suis-je ?",
+			"weight": null,
+			"answer": "homme",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 2,
+			"name": "Enigme 3",
+			"question": "Connu pour ses galeries, Et le ton de son gris, Elle évoque la mauvaise vision, Et c'est un excellent espion. Qui suis-je ?",
+			"weight": null,
+			"answer": "taupe",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 3,
+			"name": "Enigme 4",
+			"question": "Je détruit tout : os, chair et vie. Jamais je ne me repose car je suis infini. Ni l'acier des armes, ni la roche des montagnes ne me résistent. Dévoreur sans fin, mon appétit n'a pas de limite. Que suis-je ?",
+			"weight": null,
+			"answer": "temps",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 4,
+			"name": "Enigme 5",
+			"question": "Je suis si fragile que lorsque l'on prononce mon nom, je meurs. Qui suis-je ?",
+			"weight": null,
+			"answer": "silence",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 5,
+			"name": "Enigme 6",
+			"question": "Sans voix, je crie. Sans aile, je voltige. Sans dents, je mord. Sans bouche, je murmure. Qui suis-je ?",
+			"weight": null,
+			"answer": "vent",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 6,
+			"name": "Enigme 7",
+			"question": "Qu'est-ce qu'une chauve-souris avec une perruque ?",
+			"weight": null,
+			"answer": "souris",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 7,
+			"name": "Enigme 8",
+			"question": "Je suis vague en bord de mer. Je descends des montagnes en hiver. Sans moi vous n'aurez plus une larme. Qui suis-je ?",
+			"weight": null,
+			"answer": "eau",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 8,
+			"name": "Enigme 9",
+			"question": "Du repos des humains, implacable ennemie. J'ai rendu mille amants envieux de mon sort. Je me repais de sang et retrouve ma vie dans les bras de celui qui souhaite ma mort. Que suis-je ?",
+			"weight": null,
+			"answer": "puce",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 9,
+			"name": "Enigme 10",
+			"question": "Vous ne pouvez que me deviner et ne pouvez qu'avancer vers moi. Quand vous arrivez, je ne suis plus là. Car à chaque pas avancé, je recule d'autant. Qui suis-je ?",
+			"weight": null,
+			"answer": "futur",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 10,
+			"name": "Enigme 11",
+			"question": "5 voleurs pénètrent un par un dans un palais renfermant des diamants. Les 4 premiers voleurs prennent la moitié des diamants qu'ils trouvent plus un. Le dernier ne trouve plus rien à voler. Combien y avait-il de diamants à l'origine ?",
+			"weight": null,
+			"answer": "30",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 11,
+			"name": "Enigme 12",
+			"question": "Un arbre elfique double sa taille tous les jours. Il lui faut 100 jours pour atteindre sa taille adulte. Combien de jours faut-il pour atteindre la moitié de cette taille ?",
+			"weight": null,
+			"answer": "99",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 12,
+			"name": "Enigme 13",
+			"question": "Un objet pèse cent livres plus la moitié de son poids. Combien pèse t-il ?",
+			"weight": null,
+			"answer": "200",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 13,
+			"name": "Enigme 14",
+			"question": "Lumière qui fuit la lumière. Qui suis-je ?",
+			"weight": null,
+			"answer": "étoile",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 14,
+			"name": "Enigme 15",
+			"question": "Il y avait une fille de la moitié de mon âge quand j’avais 12 ans, maintenant j’ai 64 ans, quel âge a-t-elle ?",
+			"weight": null,
+			"answer": "58",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 15,
+			"name": "Enigme 16",
+			"question": "Ils sont au-dessus des rois. Nul ne peut ignorer leur colère. Ils sont bien éphémères parfois. Et leur sang nourrit la terre. Qui sont-ils ?",
+			"weight": null,
+			"answer": "nuages",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 16,
+			"name": "Enigme 17",
+			"question": "Un virage qui ne mène nulle part. Qui suis-je ?",
+			"weight": null,
+			"answer": "cercle",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 17,
+			"name": "Enigme 18",
+			"question": "Invisible et pourtant connue de tous. Plus légère que le vent, plus affûtée qu'une lame. Née de rien, mais capable de vaincre les plus grandes armées. Qui suis-je ?",
+			"weight": null,
+			"answer": "faim",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 18,
+			"name": "Enigme 19",
+			"question": "Je mets mes dents entre tes dents. Qui suis-je ?",
+			"weight": null,
+			"answer": "fourchette",
+			"interactions": {
+				"type": "riddle"
+			}
+		},
+		{
+			"id": 19,
+			"name": "Enigme 20",
+			"question": "Je suis lourde ou légère mais impalpable. Pourtant, on me met ou on me casse. Qui suis-je ?",
+			"weight": null,
+			"answer": "ambiance",
+			"interactions": {
+				"type": "riddle"
+			}
+		}
+	]
 }

@@ -2,21 +2,22 @@
 	"room": [
 		{
 			"id": 0,
-			"name": "Début de l'aventure",
-			"description": "Bienvenue dans ce jeu d'aventure ! Vous vous retrouvez plongé dans un monde mystérieux et dangereux, rempli d'énigmes à résoudre et de défis à relever. Votre mission est de découvrir tous les secrets de ce monde et devenir un héros légendaire.",
-			"objects": []
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 0
+				}
+			]
 		},
 		{
 			"id": 1,
-			"name": "Player",
-			"description": "Choisi ton joueur",
+			"name": "Enigme",
+			"description": "",
 			"objects": [
 				{
-					"type": "player",
-					"id": 0
-				},
-				{
-					"type": "player",
+					"type": "riddle",
 					"id": 1
 				}
 			]
@@ -28,7 +29,7 @@
 			"objects": [
 				{
 					"type": "riddle",
-					"id": 0
+					"id": 2
 				}
 			]
 		},
@@ -39,7 +40,7 @@
 			"objects": [
 				{
 					"type": "riddle",
-					"id": 1
+					"id": 3
 				}
 			]
 		},
@@ -50,7 +51,7 @@
 			"objects": [
 				{
 					"type": "riddle",
-					"id": 2
+					"id": 4
 				}
 			]
 		},
@@ -61,7 +62,7 @@
 			"objects": [
 				{
 					"type": "riddle",
-					"id": 3
+					"id": 5
 				}
 			]
 		},
@@ -72,7 +73,7 @@
 			"objects": [
 				{
 					"type": "riddle",
-					"id": 4
+					"id": 6
 				}
 			]
 		},
@@ -83,7 +84,7 @@
 			"objects": [
 				{
 					"type": "riddle",
-					"id": 5
+					"id": 7
 				}
 			]
 		},
@@ -94,15 +95,130 @@
 			"objects": [
 				{
 					"type": "riddle",
-					"id": 6
+					"id": 8
 				}
 			]
 		},
 		{
 			"id": 9,
-			"name": "Fin de l'aventure",
-			"description": "C'est la fin de votre périple",
-			"objects": []
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 9
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 10
+				}
+			]
+		},
+		{
+			"id": 11,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 11
+				}
+			]
+		},
+		{
+			"id": 12,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 12
+				}
+			]
+		},
+		{
+			"id": 13,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 13
+				}
+			]
+		},
+		{
+			"id": 14,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 14
+				}
+			]
+		},
+		{
+			"id": 15,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 15
+				}
+			]
+		},
+		{
+			"id": 16,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 16
+				}
+			]
+		},
+		{
+			"id": 17,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 17
+				}
+			]
+		},
+		{
+			"id": 18,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 18
+				}
+			]
+		},
+		{
+			"id": 19,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 19
+				}
+			]
 		}
 	]
 }

@@ -1,0 +1,108 @@
+{
+	"room": [
+		{
+			"id": 0,
+			"name": "Début de l'aventure",
+			"description": "Bienvenue dans ce jeu d'aventure ! Vous vous retrouvez plongé dans un monde mystérieux et dangereux, rempli d'énigmes à résoudre et de défis à relever. Votre mission est de découvrir tous les secrets de ce monde et devenir un héros légendaire.",
+			"objects": []
+		},
+		{
+			"id": 1,
+			"name": "Player",
+			"description": "Choisi ton joueur",
+			"objects": [
+				{
+					"type": "player",
+					"id": 0
+				},
+				{
+					"type": "player",
+					"id": 1
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 0
+				}
+			]
+		},
+		{
+			"id": 3,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 1
+				}
+			]
+		},
+		{
+			"id": 4,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 2
+				}
+			]
+		},
+		{
+			"id": 5,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 3
+				}
+			]
+		},
+		{
+			"id": 6,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 4
+				}
+			]
+		},
+		{
+			"id": 7,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 5
+				}
+			]
+		},
+		{
+			"id": 8,
+			"name": "Enigme",
+			"description": "",
+			"objects": [
+				{
+					"type": "riddle",
+					"id": 6
+				}
+			]
+		},
+		{
+			"id": 9,
+			"name": "Fin de l'aventure",
+			"description": "C'est la fin de votre périple",
+			"objects": []
+		}
+	]
+}
