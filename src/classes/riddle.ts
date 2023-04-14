@@ -12,6 +12,7 @@ export class Riddle implements IInteractiveObject {
 	answer: string
 	reward: IInteractiveObject[] | string | Room
 	inputType: InputType
+	isFirstAnswer: Boolean
 
   /**
 	 * Creates a new riddle
@@ -35,6 +36,7 @@ export class Riddle implements IInteractiveObject {
 		this.weight = weight
 		this.reward = reward
 		this.inputType = InputType.Prompt
+		this.isFirstAnswer = true
 	}
 
   /**
@@ -43,7 +45,11 @@ export class Riddle implements IInteractiveObject {
 	*/
   examine() {
     return `Name : ${this.name} \n Question : ${this.question} \n Answer : ${this.answer} \n Reward ${this.reward}`
-  }
+	}
+	
+	setIsFirstAnswer() {
+		this.isFirstAnswer = false
+	}
 
   /**
 	 * Solves the riddle and say if the answer is correct
