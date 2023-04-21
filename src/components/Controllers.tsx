@@ -1,28 +1,45 @@
-import React, { useState, Fragment } from 'react'
-import { Player } from '../classes'
+import React, { useState, Fragment, useEffect } from 'react'
+import { GameInstance } from '../classes/gameInstance.ts'
 import { getRoom } from '../helpers/index.ts'
-import { players } from '../helpers/data.ts'
-import { Riddle } from './Riddle'
+import { getInventory, players } from '../helpers/data.ts'
+import { Riddle } from './Riddle.tsx'
 import { Fight } from './Fight'
 import { PlayerCard } from './PlayerCard'
+import { Player } from '../classes/player.ts'
+import { Room } from '../classes/room.ts'
 
 const Controllers = (): JSX.Element => {
-  const [LEVEL, setLEVEL] = useState(0)
-  const [resolvedRiddle, setResolvedRiddle] = useState([]) // eslint-disable-line @typescript-eslint/no-unused-vars
-  const [player, setPlayer] = useState({})
   const [typeCurrentRoom, setTypeCurrentRoom] = useState('Start')
-  const [room, setRoom] = useState(getRoom(20))
+  const [game, setGame] = useState(new GameInstance(getRoom(20)))
 
   const selectPlayer = id => {
     const p = players.find(el => el.id === id)
-    setPlayer(p as Player)
+	  setGame({...game, player: p} )
     setTypeCurrentRoom('Game')
   }
 
+
+  useEffect(() => {
+    if(game.currentRoom.id != 20){
+      localStorage.setItem('game',JSON.stringify(game))
+    }
+  },[game, setGame])
+
+  
   return (
     <>
+    
       {typeCurrentRoom === 'Start' && (
         <>
+        <p>Une nouvelle partie est disponible. Voulez vous continuer ?</p>
+        <button
+          onClick={()=> {
+            game.load()
+            setGame(game)
+            setTypeCurrentRoom('Game')
+          }}
+          className='button'
+          >Oui</button>
           <p>Début de l'aventure</p>
           <p>
             Bienvenue dans ce jeu d'aventure ! Vous vous retrouvez plongé dans
@@ -43,51 +60,51 @@ const Controllers = (): JSX.Element => {
           <p>Choisir la difficulté</p>
           <div
             className={`input__radio-container ${
-              !!LEVEL ? 'levelSelected' : ''
+              !!game.difficulty ? 'levelSelected' : ''
             }`}
           >
-            <label className={`input__radio ${LEVEL === 10 ? 'selected' : ''}`}>
+            <label className={`input__radio ${game.difficulty === 10 ? 'selected' : ''}`}>
               <input
                 name='level'
                 type='radio'
                 value='10'
-                onChange={e => setLEVEL(Number(e.target.value))}
+                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
               />
               <div className='input__radio-inner'>
                 <span className='name'>FACILE</span>
                 <span className='desc'>10 énigmes</span>
               </div>
             </label>
-            <label className={`input__radio ${LEVEL === 15 ? 'selected' : ''}`}>
+            <label className={`input__radio ${game.difficulty === 15 ? 'selected' : ''}`}>
               <input
                 name='level'
                 type='radio'
                 value='15'
-                onChange={e => setLEVEL(Number(e.target.value))}
+                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
               />
               <div className='input__radio-inner'>
                 <span className='name'>MOYENNE</span>
                 <span className='desc'>15 énigmes</span>
               </div>
             </label>
-            <label className={`input__radio ${LEVEL === 18 ? 'selected' : ''}`}>
+            <label className={`input__radio ${game.difficulty === 18 ? 'selected' : ''}`}>
               <input
                 name='level'
                 type='radio'
                 value='18'
-                onChange={e => setLEVEL(Number(e.target.value))}
+                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
               />
               <div className='input__radio-inner'>
                 <span className='name'>DIFFICILE</span>
                 <span className='desc'>18 énigmes</span>
               </div>
             </label>
-            <label className={`input__radio ${LEVEL === 20 ? 'selected' : ''}`}>
+            <label className={`input__radio ${game.difficulty === 20 ? 'selected' : ''}`}>
               <input
                 name='level'
                 type='radio'
                 value='20'
-                onChange={e => setLEVEL(Number(e.target.value))}
+                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
               />
               <div className='input__radio-inner'>
                 <span className='name'>HARDCORE</span>
@@ -103,7 +120,7 @@ const Controllers = (): JSX.Element => {
                 key={key}
                 player={player}
                 onClick={selectPlayer}
-                disabled={LEVEL === 0}
+				        game = {game}
               />
             ))}
           </div>
@@ -111,25 +128,23 @@ const Controllers = (): JSX.Element => {
       )}
       {typeCurrentRoom === 'Game' && (
         <>
-          {room.objects.map((obj: any, key: number) => (
+          {game.currentRoom.objects.map((obj: any, key: number) => (
             <Fragment key={key}>
-              <p>{room.getDescription()}</p>
+              <p>{game.currentRoom.description}</p>
               {obj.inputType === 'prompt' && (
                 <Riddle
-                  player={player}
+                  game={game}
                   riddle={obj}
-                  LEVEL={LEVEL}
+                  setGame={setGame}
                   setTypeCurrentRoom={setTypeCurrentRoom}
-                  setRoom={setRoom}
                 />
               )}
               {obj.inputType === 'boolean' && (
                 <Fight
-                  player={player}
+                  game={game}
                   ennemy={obj}
-                  resolvedRiddle={resolvedRiddle}
+                  setGame={setGame}
                   setTypeCurrentRoom={setTypeCurrentRoom}
-                  setRoom={setRoom}
                 />
               )}
             </Fragment>
@@ -139,7 +154,7 @@ const Controllers = (): JSX.Element => {
 
       {/*  room de fin */}
       {typeCurrentRoom === 'End' &&
-        (player.currentLP <= 0 ? (
+        (game.player.currentLP <= 0 ? (
           <>
             <h1>ECHEC</h1>
             <div className='skull__container'>

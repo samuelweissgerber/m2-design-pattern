@@ -7,6 +7,7 @@ import { IInteractiveObject, InputType } from "../interfaces/index.ts"
 export class Riddle implements IInteractiveObject {
 	id: number
 	name: string
+	type: string
 	question: string
 	weight: number
 	answer: string
@@ -28,6 +29,7 @@ export class Riddle implements IInteractiveObject {
 		answer: string,
 		weight: number = 0,
 		reward,
+		type: string
 	) {
 		this.id = id
 		this.name = "Énigme"
@@ -37,6 +39,7 @@ export class Riddle implements IInteractiveObject {
 		this.reward = reward
 		this.inputType = InputType.Prompt
 		this.isFirstAnswer = true
+		this.type = type
 	}
 
   /**
@@ -46,10 +49,6 @@ export class Riddle implements IInteractiveObject {
   examine() {
     return `Name : ${this.name} \n Question : ${this.question} \n Answer : ${this.answer} \n Reward ${this.reward}`
 	}
-	
-	setIsFirstAnswer() {
-		this.isFirstAnswer = false
-	}
 
   /**
 	 * Solves the riddle and say if the answer is correct
@@ -57,6 +56,7 @@ export class Riddle implements IInteractiveObject {
 	 * @returns if the answer is correct
 	*/
 	use(response: String): boolean {
+		this.isFirstAnswer = false
 		return response === this.answer
 	}
 }
