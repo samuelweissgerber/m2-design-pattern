@@ -1,8 +1,7 @@
-import { Script } from "vm"
 import { IInteractiveObject } from "../interfaces"
 import { Character } from "./character.ts"
 import { Room } from "./room"
-import { Armor, Takable } from "./takables.ts"
+import { Armor } from "./takables.ts"
 import { Weapon } from "./takables/weapon.ts"
 
 
@@ -97,20 +96,25 @@ export class Player {
 	}
 
 	attack(ennemy: Character, weapon: Weapon) {
-		if (this.inventory.find((el) => el.name === weapon.name)) {
-			const ennemyProtection: number =
-				ennemy.inventory.find((el) => el.name === "Armure")?.protection ?? 0
-			const damage: number = ennemyProtection - weapon.damage
-			ennemy.setCurrentLP(ennemy.currentLP - damage)
-			if (ennemy.currentLP <= 0) {
-				this.currentRoom.removeObject(ennemy)
-				return `${this.name} a vaincu ${ennemy.name}!`
+			if (this.inventory.find((el) => el.name === weapon.name)) {
+				const ennemyProtection: number =
+					ennemy.inventory.find((el) => el.name === "Armure")?.protection ?? 0
+				const damage: number = ennemyProtection - weapon.damage
+				ennemy.setCurrentLP(ennemy.currentLP - Math.abs(damage))
+				this.setCurrentLP(this.currentLP - ennemy.inventory[0].damage)
+				if (ennemy.currentLP <= 0) {
+					this.currentRoom.removeObject(ennemy)
+					return(`${this.name} a vaincu ${ennemy.name}!`);
+				} else {
+					return(`${this.name} a infligé ${damage} dégâts à ${ennemy.name}!`)
+				}
 			} else {
-				return `${this.name} a infligé ${damage} dégâts à ${ennemy.name}!`
+				return(`${this.name} ne possédez pas de ${weapon.name}`)
 			}
-		} else {
-			return ` ${this.name} ne possédez pas de ${weapon.name}`
-		}
+	}
+
+	tryToTalk() {
+		return  Math.random() < 0.5
 	}
 
 }

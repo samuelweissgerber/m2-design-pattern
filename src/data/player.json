@@ -43,6 +43,25 @@
 					"id": 0
 				}
 			]
+		},
+		{
+			"id": 2,
+			"name": "Thorin",
+			"race": "Nain",
+			"currentRoom": null,
+			"currentLP": 18,
+			"maxLP": 18,
+			"weight": 85,
+			"inventory": [
+				{
+					"type": "weapons",
+					"id": 2
+				},
+				{
+					"type": "armors",
+					"id": 2
+				}
+			]
 		}
 	]
 }

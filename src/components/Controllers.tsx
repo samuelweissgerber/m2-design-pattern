@@ -1,69 +1,17 @@
-import React, { useState, useEffect, Fragment } from "react"
+import React, { useState, Fragment } from "react"
 import { Player } from "../classes"
 import { getRoom } from "../helpers/index.ts"
-import { data } from "../helpers/data.ts"
+import { players } from "../helpers/data.ts"
+import { Riddle } from "./Riddle"
+import { Fight } from "./Fight"
+import { PlayerCard } from "./PlayerCard"
 
 const Controllers = (): JSX.Element => {
-	const { players, rooms } = data
 	const [LEVEL, setLEVEL] = useState(0)
-	const [resolvedRiddle, setResolvedRiddle] = useState([])
-	const [timeLeft, setTimeLeft] = useState(0)
-
-	const [response, setResponse] = useState("")
+	const [resolvedRiddle, setResolvedRiddle] = useState([]) // eslint-disable-line @typescript-eslint/no-unused-vars
 	const [player, setPlayer] = useState({})
 	const [typeCurrentRoom, setTypeCurrentRoom] = useState("Start")
-	const [room, setRoom] = useState(getRoom(0))
-
-	const getRandomId = (): Number | undefined => {
-		const pre = Math.floor(Math.random() * rooms.length)
-		if (resolvedRiddle.includes(pre)) {
-			getRandomId()
-		} else {
-			return pre
-		}
-	}
-
-	useEffect(() => {
-		if (timeLeft <= 0 && typeCurrentRoom === "Game" && LEVEL === 20) {
-			player.setCurrentLP(0)
-			setTypeCurrentRoom("End")
-			return
-		}
-		// `setInterval` pour exécuter une fonction qui diminue le temps restant de 1 chaque seconde
-		const interval = setInterval(() => {
-			setTimeLeft(timeLeft - 1)
-		}, 1000)
-
-		// `clearInterval` pour nettoyer l'intervalle
-		// Lorsqu'on met un return dans un useEffect le return est exécuté lorsque le composant est démonté
-		return () => clearInterval(interval)
-	}, [timeLeft])
-
-	const formatTime = (time) => {
-		const minutes = Math.floor(time / 60)
-		const seconds = time % 60
-		return `${minutes.toString().padStart(2, "0")}:${seconds
-			.toString()
-			.padStart(2, "0")}`
-	}
-
-	//console.log(room)
-
-	const testRiddle = (obj) => {
-		if (obj.use(response)) {
-			if (resolvedRiddle.length === LEVEL) {
-				setTypeCurrentRoom("End")
-			}
-			setRoom(getRoom(getRandomId()))
-			setResolvedRiddle([...resolvedRiddle, obj.id])
-		} else {
-			player.setCurrentLP(player.currentLP - 10)
-			if (player.currentLP <= 0) {
-				setTypeCurrentRoom("End")
-			}
-		}
-		setResponse("")
-	}
+	const [room, setRoom] = useState(getRoom(20))
 
 	const selectPlayer = (id) => {
 		const p = players.find((el) => el.id === id)
@@ -93,70 +41,66 @@ const Controllers = (): JSX.Element => {
 				<>
 					<p>Difficulté</p>
 					<p>
-						<button onClick={() => setLEVEL(10)} className="button">
+						<button
+							onClick={() => setLEVEL(10)}
+							className="button"
+							disabled={LEVEL === 10}>
 							Facile
 						</button>
-						<button onClick={() => setLEVEL(15)} className="button">
+						<button
+							onClick={() => setLEVEL(15)}
+							disabled={LEVEL === 15}
+							className="button">
 							Moyen
 						</button>
-						<button onClick={() => setLEVEL(18)} className="button">
+						<button
+							onClick={() => setLEVEL(18)}
+							disabled={LEVEL === 18}
+							className="button">
 							Difficile
 						</button>
 						<button
-							onClick={() => {
-								setLEVEL(20)
-								setTimeLeft(180)
-							}}
+							onClick={() => setLEVEL(20)}
+							disabled={LEVEL === 20}
 							className="button">
 							Hardcore
 						</button>
 					</p>
 					<p>Choisi ton joueur</p>
-					<p>
+					<div className="flex">
 						{players.map((player, key) => (
-							<button
+							<PlayerCard
 								key={key}
-								onClick={() => selectPlayer(player.id)}
-								className="button"
-								disabled={LEVEL === 0}>
-								{player.name}
-							</button>
+								player={player}
+								onClick={selectPlayer}
+								disabled={LEVEL === 0}
+							/>
 						))}
-					</p>
+					</div>
 				</>
 			)}
 			{typeCurrentRoom === "Game" && (
 				<>
-					{LEVEL === 20 && <h1>Time Left: {formatTime(timeLeft)}</h1>}
-					<div className="lifepoint__container">
-						<div className="lifepoint__heart">
-							<p className="lifepoint__number">{player.currentLP ?? 0}</p>
-						</div>
-					</div>
 					{room.objects.map((obj: any, key: number) => (
 						<Fragment key={key}>
 							<p>{room.getDescription()}</p>
 							{obj.inputType === "prompt" && (
-								<>
-									<p>{obj.question}</p>
-									<input
-										className="answer__input"
-										placeholder="Réponse"
-										value={response}
-										onKeyDown={(e) =>
-											e.code === "Enter" ? testRiddle(obj) : null
-										}
-										onChange={(e) => setResponse(e.target.value)}
-									/>
-									<button
-										disabled={response === "" ? true : false}
-										onClick={(e) => {
-											testRiddle(obj)
-										}}
-										className="button">
-										Valider
-									</button>
-								</>
+								<Riddle
+									player={player}
+									riddle={obj}
+									LEVEL={LEVEL}
+									setTypeCurrentRoom={setTypeCurrentRoom}
+									setRoom={setRoom}
+								/>
+							)}
+							{obj.inputType === "boolean" && (
+								<Fight
+									player={player}
+									ennemy={obj}
+									resolvedRiddle={resolvedRiddle}
+									setTypeCurrentRoom={setTypeCurrentRoom}
+									setRoom={setRoom}
+								/>
 							)}
 						</Fragment>
 					))}

@@ -58,7 +58,7 @@ import monstersJson from "../data/monster.json"
 playersJson.player.map(player => players.push(new Player(player.id, player.type, player.name, rooms[0], player.currentLP, player.weight, [...player.inventory.map(el => getInventory(el))])))
   
 
-export const data = {
+export {
   armorsData,
   riddles ,
   weaponsData ,
