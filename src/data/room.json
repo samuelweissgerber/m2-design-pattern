@@ -219,6 +219,28 @@
 					"id": 19
 				}
 			]
+		},
+		{
+			"id": 20,
+			"name": "Monster",
+			"description": "",
+			"objects": [
+				{
+					"type": "monster",
+					"id": 0
+				}
+			]
+		},
+		{
+			"id": 21,
+			"name": "Monstre",
+			"description": "",
+			"objects": [
+				{
+					"type": "monster",
+					"id": 1
+				}
+			]
 		}
 	]
 }
