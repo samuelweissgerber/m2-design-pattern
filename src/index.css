@@ -50,6 +50,7 @@ code {
 input {
   font-size: 20px;
 }
+
 button {
   border: none;
   margin: 1em;
@@ -305,6 +306,12 @@ button {
   font-family: sans-serif;
 }
 
+.flip-card:disabled {
+  filter: grayscale(1);
+  cursor: not-allowed;
+  opacity: .75;
+}
+
 .title {
   font-size: 1.5em;
   font-weight: 900;
@@ -321,12 +328,12 @@ button {
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+.flip-card:hover:not(:disabled) .flip-card-inner {
   transform: rotateY(180deg);
 }
 
 .flip-card-front, .flip-card-back {
-  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -341,13 +348,13 @@ button {
 
 .flip-card-front {
   background: linear-gradient(120deg, bisque 60%, rgb(255, 231, 222) 88%,
-     rgb(255, 211, 195) 40%, rgba(255, 127, 80, 0.603) 48%);
+      rgb(255, 211, 195) 40%, rgba(255, 127, 80, 0.603) 48%);
   color: coral;
 }
 
 .flip-card-back {
   background: linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%,
-     bisque 40%, rgb(255, 185, 160) 78%);
+      bisque 40%, rgb(255, 185, 160) 78%);
   color: white;
   transform: rotateY(180deg);
 }
