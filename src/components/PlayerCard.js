@@ -7,6 +7,9 @@ export const PlayerCard = ({ player, onClick, game }) => {
     >
       <div className="flip-card-inner">
         <div className="flip-card-front">
+          <div className="character-container">
+            <div className={"character character--" + player.name.toLowerCase()}></div>
+          </div>
           <p className="title">{player.name}</p>
         </div>
         <div className="flip-card-back">
