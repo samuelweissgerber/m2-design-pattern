@@ -2,15 +2,15 @@
     "weapon": [
         {
             "id": 0,
-            "name": "Epée",
-            "description": "Une épée tranchante et légère.",
+            "name": "Masse d'armes",
+            "description": "Une masse d'armes fracassante.",
             "damage": 6,
             "weight": 1.5
         },
         {
             "id": 1,
-            "name": "Maillet",
-            "description": "Un maillet massif et puissant.",
+            "name": "Epée",
+            "description": "Une épée aiguisé est tranchante.",
             "damage": 12,
             "weight": 5
         },

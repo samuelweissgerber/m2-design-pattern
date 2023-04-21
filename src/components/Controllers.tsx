@@ -41,7 +41,11 @@ const Controllers = (): JSX.Element => {
       {typeCurrentRoom === 'Player' && (
         <>
           <p>Choisir la difficulté</p>
-          <div className='input__radio-container'>
+          <div
+            className={`input__radio-container ${
+              !!LEVEL ? 'levelSelected' : ''
+            }`}
+          >
             <label className={`input__radio ${LEVEL === 10 ? 'selected' : ''}`}>
               <input
                 name='level'
@@ -49,7 +53,10 @@ const Controllers = (): JSX.Element => {
                 value='10'
                 onChange={e => setLEVEL(Number(e.target.value))}
               />
-              <span>FACILE (10 énigmes)</span>
+              <div className='input__radio-inner'>
+                <span className='name'>FACILE</span>
+                <span className='desc'>10 énigmes</span>
+              </div>
             </label>
             <label className={`input__radio ${LEVEL === 15 ? 'selected' : ''}`}>
               <input
@@ -58,7 +65,10 @@ const Controllers = (): JSX.Element => {
                 value='15'
                 onChange={e => setLEVEL(Number(e.target.value))}
               />
-              <span>MOYENNE (15 énigmes)</span>
+              <div className='input__radio-inner'>
+                <span className='name'>MOYENNE</span>
+                <span className='desc'>15 énigmes</span>
+              </div>
             </label>
             <label className={`input__radio ${LEVEL === 18 ? 'selected' : ''}`}>
               <input
@@ -67,7 +77,10 @@ const Controllers = (): JSX.Element => {
                 value='18'
                 onChange={e => setLEVEL(Number(e.target.value))}
               />
-              <span>DIFFICILE (18 énigmes)</span>
+              <div className='input__radio-inner'>
+                <span className='name'>DIFFICILE</span>
+                <span className='desc'>18 énigmes</span>
+              </div>
             </label>
             <label className={`input__radio ${LEVEL === 20 ? 'selected' : ''}`}>
               <input
@@ -76,7 +89,10 @@ const Controllers = (): JSX.Element => {
                 value='20'
                 onChange={e => setLEVEL(Number(e.target.value))}
               />
-              <span>HARDCORE (20 énigmes + Timer)</span>
+              <div className='input__radio-inner'>
+                <span className='name'>HARDCORE</span>
+                <span className='desc'>20 énigmes + Timer</span>
+              </div>
             </label>
           </div>
 
