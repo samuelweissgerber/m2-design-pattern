@@ -33,11 +33,15 @@ export const Riddle = ({player, riddle, setTypeCurrentRoom, LEVEL, setRoom}) => 
   
   const testRiddle = (riddle) => {
 		if (riddle.use(response)) {
+			if (riddle.isFirstAnswer) {
+				player.setCurrentLP(player.currentLP + 5)
+			}
 			if (resolvedRiddle.length === LEVEL) {
 				setTypeCurrentRoom("End")
 			}
 			setRoom(getRandomRoom(resolvedRiddle, rooms.length))
 			setResolvedRiddle([...resolvedRiddle, riddle.id])
+			setTimeLeft(180)
 		} else {
 			player.setCurrentLP(player.currentLP - 10)
 			if (player.currentLP <= 0) {

@@ -14,20 +14,17 @@ export const Fight = ({player, ennemy, resolvedRiddle,  setRoom, setTypeCurrentR
     } else {
       if (player.currentLP < 0) {
         setTypeCurrentRoom("End")
-      } else setRoom(getRandomRoom(resolvedRiddle, rooms.length))
+      } else {setRoom(getRandomRoom(resolvedRiddle, rooms.length))}
     }
-
 	}
 
-	const talk = (ennemy) => {
-		if (player.tryToTalk()) {
+  const talk = (ennemy) => {
+    if (!!player.tryToTalk()) {
 			setFighting(`${ennemy?.name} à accepté de discuter`)
-			setTimeout(() => null, 1000)
-			setRoom(getRandomRoom(resolvedRiddle, rooms.length))
+			setTimeout(() => setRoom(getRandomRoom(resolvedRiddle, rooms.length)), 2000)
 		} else {
 			setFighting(`${ennemy?.name} à refuser de discuter`)
-			setTimeout(() => null, 1000)
-			fight(ennemy)
+			setTimeout(() => fight(ennemy), 2000)	
 		}
   }
   
