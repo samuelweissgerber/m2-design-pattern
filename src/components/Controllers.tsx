@@ -31,7 +31,7 @@ const Controllers = (): JSX.Element => {
         <>
         {localStorage.getItem('game') && (
           <>
-          <p>Une nouvelle partie est disponible. Voulez vous continuer ?</p>
+          <p>Une partie sauvegardé est disponible. Voulez-vous la reprendre ?</p>
           <button
             onClick={()=> {
               game.load()
