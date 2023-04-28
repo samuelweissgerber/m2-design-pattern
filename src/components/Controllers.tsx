@@ -17,12 +17,13 @@ const Controllers = (): JSX.Element => {
   }
 
   useEffect(() => {
-    if (game.currentRoom.id != 20) {
+    if (game.currentRoom.id != 20){
       localStorage.setItem('game', JSON.stringify(game))
+    }
     if(typeCurrentRoom === 'End'){
       localStorage.clear()
     }
-  },[game, setGame])
+  } , [game, setGame])
 
 
   return (

@@ -15,7 +15,7 @@ export class Riddle implements IInteractiveObject {
 	inputType: InputType
 	isFirstAnswer: Boolean
 
-  /**
+  	/**
 	 * Creates a new riddle
 	 * @param id - The unique identifier for the riddle
 	 * @param question - The question asked by the riddle
@@ -42,19 +42,19 @@ export class Riddle implements IInteractiveObject {
 		this.type = type
 	}
 
-  /**
+  	/**
 	 * Returns a string with information about the riddle
 	 * @returns A string with information about the riddle
-	*/
-  examine() {
-    return `Name : ${this.name} \n Question : ${this.question} \n Answer : ${this.answer} \n Reward ${this.reward}`
+	 */
+	examine() {
+		return `Name : ${this.name} \n Question : ${this.question} \n Answer : ${this.answer} \n Reward ${this.reward}`
 	}
 
-  /**
+  	/**
 	 * Solves the riddle and say if the answer is correct
 	 * @param reponse - The player attempting to solve the riddle
 	 * @returns if the answer is correct
-	*/
+	 */
 	use(response: String): boolean {
 		this.isFirstAnswer = false
 		return response === this.answer
