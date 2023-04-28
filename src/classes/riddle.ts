@@ -17,11 +17,12 @@ export class Riddle implements IInteractiveObject {
 
   	/**
 	 * Creates a new instance of the Riddle class.
-	 * @param id - The unique identifier for the riddle.
-	 * @param question - The question asked by the riddle.
-	 * @param answer - The answer to the riddle.
-	 * @param weight - The weight of the riddle (default 0).
-	 * @param reward - The reward for solving the riddle.
+	 * @param {number} id - The unique identifier for the riddle.
+	 * @param {string} question - The question asked by the riddle.
+	 * @param {string} answer - The answer to the riddle.
+	 * @param {number} weight - The weight of the riddle (default 0).
+	 * @param {string} reward - The reward for solving the riddle.
+	 * @param {string} reward - The type of the riddle.
 	 */
 	constructor(
 		id: number,
