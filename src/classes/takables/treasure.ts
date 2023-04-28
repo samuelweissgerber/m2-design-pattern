@@ -8,6 +8,14 @@ import { Takable } from "./takable.ts"
 export class Treasure extends Takable {
 	inventory: any[]
 
+	/**
+	 * Creates a new Treasure object with the given properties.
+	 * @param id The ID of the object.
+	 * @param name The name of the object.
+	 * @param description A description of the object.
+	 * @param weight The weight of the object.
+	 * @param inventory The inventory where the item will be added.
+	*/
 	constructor(id: number,
 		name: string = "Arme",
 		description: string,
