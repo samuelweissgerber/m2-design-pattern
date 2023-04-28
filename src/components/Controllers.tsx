@@ -1,12 +1,10 @@
 import React, { useState, Fragment, useEffect } from 'react'
 import { GameInstance } from '../classes/gameInstance.ts'
 import { getRoom } from '../helpers/index.ts'
-import { getInventory, players } from '../helpers/data.ts'
+import { players } from '../helpers/data.ts'
 import { Riddle } from './Riddle.tsx'
 import { Fight } from './Fight'
 import { PlayerCard } from './PlayerCard'
-import { Player } from '../classes/player.ts'
-import { Room } from '../classes/room.ts'
 
 const Controllers = (): JSX.Element => {
   const [typeCurrentRoom, setTypeCurrentRoom] = useState('Start')
@@ -23,6 +21,9 @@ const Controllers = (): JSX.Element => {
     if(game.currentRoom.id != 20){
       localStorage.setItem('game',JSON.stringify(game))
     }
+    if(typeCurrentRoom === 'End'){
+      localStorage.clear()
+    }
   },[game, setGame])
 
   
@@ -31,15 +32,19 @@ const Controllers = (): JSX.Element => {
     
       {typeCurrentRoom === 'Start' && (
         <>
-        <p>Une nouvelle partie est disponible. Voulez vous continuer ?</p>
-        <button
-          onClick={()=> {
-            game.load()
-            setGame(game)
-            setTypeCurrentRoom('Game')
-          }}
-          className='button'
-          >Oui</button>
+        {localStorage.getItem('game') && (
+          <>
+          <p>Une nouvelle partie est disponible. Voulez vous continuer ?</p>
+          <button
+            onClick={()=> {
+              game.load()
+              setGame(game)
+              setTypeCurrentRoom('Game')
+            }}
+            className='button'
+            >Oui</button>
+          </>
+        )}
           <p>Début de l'aventure</p>
           <p>
             Bienvenue dans ce jeu d'aventure ! Vous vous retrouvez plongé dans
@@ -47,6 +52,13 @@ const Controllers = (): JSX.Element => {
             défis à relever. Votre mission est de découvrir tous les secrets de
             ce monde et devenir un héros légendaire.
           </p>
+          <p>
+            Une fois vos points de vie en dessous de la moitié, vous pouvez récupérer des points de vie en répondant juste du premier coup à l'énigme.
+          </p>
+          <p>
+            Une sauvegarde automatique à lieu à chaque entrer de salle.
+          </p>
+          <p><strong>/!\ ATTENTION LA 1ÉRE SAUVEGARDE À LIEU APRÈS LE 1ER COMBAT /!\</strong></p>
           <button
             onClick={() => setTypeCurrentRoom('Player')}
             className='button'
