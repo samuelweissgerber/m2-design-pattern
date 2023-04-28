@@ -58,18 +58,26 @@ export class Monster {
 	use(character: Player, weapon: Weapon) {
 		return "void"
 	}
-
-	// Add item to character's inventory
+	
+	/**
+	 * Add item to character's inventory
+	 * @param {IInteractiveObject} object - The inventory
+	 */
 	addItemToInventory(object: IInteractiveObject) {
 		this.inventory.push(object)
 	}
-
-	// Remove item from character's inventory
+ 
+	/**
+	 * Remove item from character's inventory
+	 * @param {IInteractiveObject} object - The inventory
+	 */
 	removeItemToInventory(object: IInteractiveObject) {
 		this.inventory = this.inventory.filter((obj) => obj.name !== object.name)
 	}
 
-	// Get a description of the player's inventory
+	/**
+	 * Get a description of the player's inventory
+	 */
 	getInventoryDescription() {
 		let description = "Inventaire :"
 		if (this.inventory.length === 0) {
