@@ -18,6 +18,16 @@ export class Player {
 	protection: number
 	inventory: any[]
 
+	/**
+	 * Creates a new instance of the Player class.
+	 * @param {number} id - The unique identifier for the player.
+	 * @param {string} type - Type of the player.
+	 * @param {string} name - Name of the player.
+	 * @param {Room} startingRoom - Starting Room instance.
+	 * @param {number} LP - Life point of the player.
+	 * @param {number} weight - Weight of the player.
+	 * @param {IInteractiveObject} inventory - Inventory of the player.
+	 */
 	constructor(id: number,type: string, name: string, startingRoom: Room, LP: number, weight: number = 0, inventory = []) {
 		this.id = id
 		this.type = type
@@ -36,7 +46,6 @@ export class Player {
 
 	/**
 	 * Gets the protection provided by the armor worn by the player.
-	 *
 	 * @returns {number} The protection value.
 	 */
 	getProtection(): number {
@@ -45,7 +54,6 @@ export class Player {
 
 	/**
 	 * Sets the protection provided by the armor worn by the player.
-	 *
 	 * @param {number} protection - The protection value to set.
 	 */
 	setProtection(protection: number) {
@@ -54,43 +62,57 @@ export class Player {
 
 	/**
 	 * Moves the player to the specified room.
-	 *
 	 * @param {Room} room - The room where the player should go.
 	 */
 	goTo(room: Room) {
 		this.currentRoom = room
 	}
 
+	/**
+     * Returns the name of the character.
+     * @returns The name of the character.
+     */
 	examine() {
 		return this.name
 	}
 
+	/**
+     * Sets the current life points of the character.
+	 * @param {number} point -  The new life point value.
+     */
 	setCurrentLP(point: number) {
 		this.currentLP = (point >= this.maxLP) ? this.maxLP : point
 	}
 
+	/**
+     * Uses a weapon against another character.
+     * @param {Character} character - The target character.
+     * @param {Weapon} weapon - The weapon to use.
+     * @returns "void".
+     */
 	use(character: Character, weapon: Weapon) {
 		return "void"
 	}
 
 	/**
-	 * Add item to character's inventory
-	 * @param {IInteractiveObject} object - The inventory
+	 * Add item to character's inventory.
+	 * @param {IInteractiveObject} object - The inventory.
 	 */
 	addItemToInventory(object: IInteractiveObject) {
 		this.inventory.push(object)
 	}
 
 	/**
-	 * Remove item from character's inventory
-	 *  @param {IInteractiveObject} object - The inventory
+	 * Remove item from character's inventory.
+	 *  @param {IInteractiveObject} object - The inventory.
 	 */
 	removeItemToInventory(object: IInteractiveObject) {
 		this.inventory = this.inventory.filter((obj) => obj.name !== object.name)
 	}
 
 	/**
-	 * Get a description of the player's inventory
+	 * Get a description of the player's inventory.
+	 * @returns The description
 	 */
 	getInventoryDescription() {
 		let description = "Inventaire :"
@@ -104,6 +126,12 @@ export class Player {
 		return description
 	}
 
+	/**
+     * Attacks another character with a weapon.
+     * @param {Character} ennemy - The target character.
+     * @param {Weapon} weapon - The weapon to use.
+     * @returns A message describing the result of the attack.
+     */
 	attack(ennemy: Character, weapon: Weapon) {
 			if (this.inventory.find((el) => el.name === weapon.name)) {
 				const ennemyProtection: number =
@@ -122,6 +150,10 @@ export class Player {
 			}
 	}
 
+	/**
+	 * Chance that the player responds.
+	 * @returns The chance
+	 */
 	tryToTalk() {
 		return  Math.random() < 0.5
 	}

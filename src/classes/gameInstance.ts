@@ -11,6 +11,10 @@ export class GameInstance {
   public difficulty: number
   public currentRoom: Room
 
+  /**
+   * Creates a new game instance with the specified parameters.
+   * @param {Room} currentRoom - The initial inventory of the character.
+   */
   constructor (currentRoom: Room) {
     this.currentRoom = currentRoom
   }

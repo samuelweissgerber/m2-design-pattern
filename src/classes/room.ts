@@ -11,10 +11,10 @@ export class Room {
 
   	/**
      * Creates a new instance of the Room class.
-     * @param id - The unique identifier of the room.
-     * @param name - The name of the room.
-     * @param description - The description of the room.
-     * @param objects - An array of interactive objects that can be found in the room (default is an empty array).
+     * @param {number} id - The unique identifier of the room.
+     * @param {string} name - The name of the room.
+     * @param {string} description - The description of the room.
+     * @param {IInteractiveObject} objects - An array of interactive objects that can be found in the room (default is an empty array).
   	 */
 	constructor(
 		id: number,
