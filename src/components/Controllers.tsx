@@ -1,12 +1,10 @@
 import React, { useState, Fragment, useEffect } from 'react'
 import { GameInstance } from '../classes/gameInstance.ts'
 import { getRoom } from '../helpers/index.ts'
-import { getInventory, players } from '../helpers/data.ts'
+import { players } from '../helpers/data.ts'
 import { Riddle } from './Riddle.tsx'
 import { Fight } from './Fight'
 import { PlayerCard } from './PlayerCard'
-import { Player } from '../classes/player.ts'
-import { Room } from '../classes/room.ts'
 
 const Controllers = (): JSX.Element => {
   const [typeCurrentRoom, setTypeCurrentRoom] = useState('Start')
@@ -14,32 +12,36 @@ const Controllers = (): JSX.Element => {
 
   const selectPlayer = id => {
     const p = players.find(el => el.id === id)
-	  setGame({...game, player: p} )
+    setGame({ ...game, player: p })
     setTypeCurrentRoom('Game')
   }
 
-
   useEffect(() => {
-    if(game.currentRoom.id != 20){
-      localStorage.setItem('game',JSON.stringify(game))
+    if (game.currentRoom.id != 20) {
+      localStorage.setItem('game', JSON.stringify(game))
+    if(typeCurrentRoom === 'End'){
+      localStorage.clear()
     }
   },[game, setGame])
 
-  
+
   return (
     <>
-    
       {typeCurrentRoom === 'Start' && (
         <>
-        <p>Une nouvelle partie est disponible. Voulez vous continuer ?</p>
-        <button
-          onClick={()=> {
-            game.load()
-            setGame(game)
-            setTypeCurrentRoom('Game')
-          }}
-          className='button'
-          >Oui</button>
+        {localStorage.getItem('game') && (
+          <>
+          <p>Une partie sauvegardé est disponible. Voulez-vous la reprendre ?</p>
+          <button
+            onClick={()=> {
+              game.load()
+              setGame(game)
+              setTypeCurrentRoom('Game')
+            }}
+            className='button'
+            >Oui</button>
+          </>
+        )}
           <p>Début de l'aventure</p>
           <p>
             Bienvenue dans ce jeu d'aventure ! Vous vous retrouvez plongé dans
@@ -47,6 +49,13 @@ const Controllers = (): JSX.Element => {
             défis à relever. Votre mission est de découvrir tous les secrets de
             ce monde et devenir un héros légendaire.
           </p>
+          <p>
+            Une fois vos points de vie en dessous de la moitié, vous pouvez récupérer des points de vie en répondant juste du premier coup à l'énigme.
+          </p>
+          <p>
+            Une sauvegarde automatique à lieu à chaque entrer de salle.
+          </p>
+          <p><strong>/!\ ATTENTION LA 1ÉRE SAUVEGARDE À LIEU APRÈS LE 1ER COMBAT /!\</strong></p>
           <button
             onClick={() => setTypeCurrentRoom('Player')}
             className='button'
@@ -63,48 +72,72 @@ const Controllers = (): JSX.Element => {
               !!game.difficulty ? 'levelSelected' : ''
             }`}
           >
-            <label className={`input__radio ${game.difficulty === 10 ? 'selected' : ''}`}>
+            <label
+              className={`input__radio ${
+                game.difficulty === 10 ? 'selected' : ''
+              }`}
+            >
               <input
                 name='level'
                 type='radio'
                 value='10'
-                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
+                onChange={e =>
+                  setGame({ ...game, difficulty: Number(e.target.value) })
+                }
               />
               <div className='input__radio-inner'>
                 <span className='name'>FACILE</span>
                 <span className='desc'>10 énigmes</span>
               </div>
             </label>
-            <label className={`input__radio ${game.difficulty === 15 ? 'selected' : ''}`}>
+            <label
+              className={`input__radio ${
+                game.difficulty === 15 ? 'selected' : ''
+              }`}
+            >
               <input
                 name='level'
                 type='radio'
                 value='15'
-                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
+                onChange={e =>
+                  setGame({ ...game, difficulty: Number(e.target.value) })
+                }
               />
               <div className='input__radio-inner'>
                 <span className='name'>MOYENNE</span>
                 <span className='desc'>15 énigmes</span>
               </div>
             </label>
-            <label className={`input__radio ${game.difficulty === 18 ? 'selected' : ''}`}>
+            <label
+              className={`input__radio ${
+                game.difficulty === 18 ? 'selected' : ''
+              }`}
+            >
               <input
                 name='level'
                 type='radio'
                 value='18'
-                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
+                onChange={e =>
+                  setGame({ ...game, difficulty: Number(e.target.value) })
+                }
               />
               <div className='input__radio-inner'>
                 <span className='name'>DIFFICILE</span>
                 <span className='desc'>18 énigmes</span>
               </div>
             </label>
-            <label className={`input__radio ${game.difficulty === 20 ? 'selected' : ''}`}>
+            <label
+              className={`input__radio ${
+                game.difficulty === 20 ? 'selected' : ''
+              }`}
+            >
               <input
                 name='level'
                 type='radio'
                 value='20'
-                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
+                onChange={e =>
+                  setGame({ ...game, difficulty: Number(e.target.value) })
+                }
               />
               <div className='input__radio-inner'>
                 <span className='name'>HARDCORE</span>
@@ -120,7 +153,7 @@ const Controllers = (): JSX.Element => {
                 key={key}
                 player={player}
                 onClick={selectPlayer}
-				        game = {game}
+                game={game}
               />
             ))}
           </div>
