@@ -20,13 +20,13 @@ export class Player {
 
 	/**
 	 * Creates a new instance of the Player class.
-	 * @param id - The unique identifier for the player.
-	 * @param type - Type of the player.
-	 * @param name - Name of the player.
-	 * @param startingRoom - Starting Room instance.
-	 * @param LP - Life point of the player.
-	 * @param weight - Weight of the player.
-	 * @param inventory - Inventory of the player.
+	 * @param {number} id - The unique identifier for the player.
+	 * @param {string} type - Type of the player.
+	 * @param {string} name - Name of the player.
+	 * @param {Room} startingRoom - Starting Room instance.
+	 * @param {number} LP - Life point of the player.
+	 * @param {number} weight - Weight of the player.
+	 * @param {IInteractiveObject} inventory - Inventory of the player.
 	 */
 	constructor(id: number,type: string, name: string, startingRoom: Room, LP: number, weight: number = 0, inventory = []) {
 		this.id = id
@@ -72,21 +72,27 @@ export class Player {
 	}
 
 	/**
-	 * Get name of the player.
-	 */
+     * Returns the name of the character.
+     * @returns The name of the character.
+     */
 	examine() {
 		return this.name
 	}
 
 	/**
-	 * Update life points of the player.
-	 *
-	 * @param {number} point - New life points.
-	 */
+     * Sets the current life points of the character.
+	 * @param {number} point -  The new life point value.
+     */
 	setCurrentLP(point: number) {
 		this.currentLP = (point >= this.maxLP) ? this.maxLP : point
 	}
 
+	/**
+     * Uses a weapon against another character.
+     * @param {Character} character The target character.
+     * @param {Weapon} weapon The weapon to use.
+     * @returns "void".
+     */
 	use(character: Character, weapon: Weapon) {
 		return "void"
 	}
@@ -109,6 +115,7 @@ export class Player {
 
 	/**
 	 * Get a description of the player's inventory.
+	 * @returns The description
 	 */
 	getInventoryDescription() {
 		let description = "Inventaire :"
@@ -123,10 +130,11 @@ export class Player {
 	}
 
 	/**
-	 * Attack ennemy.
-	 * @param {Character} ennemy - The ennemy to attack.
-	 * @param {Weapon} weapon - The weapon used to attack the ennemy.
-	 */
+     * Attacks another character with a weapon.
+     * @param {Character} ennemy The target character.
+     * @param {Weapon} weapon The weapon to use.
+     * @returns A message describing the result of the attack.
+     */
 	attack(ennemy: Character, weapon: Weapon) {
 			if (this.inventory.find((el) => el.name === weapon.name)) {
 				const ennemyProtection: number =
@@ -147,6 +155,7 @@ export class Player {
 
 	/**
 	 * Chance that the player responds.
+	 * @returns The chance
 	 */
 	tryToTalk() {
 		return  Math.random() < 0.5
