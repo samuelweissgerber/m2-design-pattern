@@ -20,7 +20,7 @@ import monstersJson from "../data/monster.json"
 	const riddles = []
 	const weaponsData = []
 	const rooms = []
-	const players = []
+	const players: Player[] = []
  	const monsters = []
 	const traps = []
 	const treasures = []
@@ -45,7 +45,7 @@ import monstersJson from "../data/monster.json"
 	// Instantiate Weapons
 	weaponsJson.weapon.map(weapon => weaponsData.push(new Weapon(weapon.id, weapon.name, weapon.description, weapon.damage, weapon.weight)))
 
-	riddlesJson.riddle.map(riddle => riddles.push( new Riddle(riddle.id, riddle.question, riddle.answer, riddle.weight, riddle.reward)))
+	riddlesJson.riddle.map(riddle => riddles.push( new Riddle(riddle.id, riddle.question, riddle.answer, riddle.weight, riddle.reward, riddle.interactions.type)))
 
 	trapsJson.trap.map(trap => traps.push( new Trap(trap.id, trap.description, trap.damage, trap.weight)))
 	
@@ -55,7 +55,7 @@ import monstersJson from "../data/monster.json"
 	
 	roomsJson.room.map(room => rooms.push(new Room(room.id, room.name, room.description, [...room.objects.map(el => getInventory(el))])))
 
-playersJson.player.map(player => players.push(new Player(player.id, player.type, player.name, rooms[0], player.currentLP, player.weight, [...player.inventory.map(el => getInventory(el))])))
+	playersJson.player.map(player => players.push(new Player(player.id, player.type, player.name, rooms[0], player.currentLP, player.weight, [...player.inventory.map(el => getInventory(el))])))
   
 
 export {

@@ -1,48 +1,40 @@
-import { Player } from "./player"
-import { getRoom } from "../helpers/index.ts"
-
+import { Player } from './player.ts'
+import { getRoom } from '../helpers/index.ts'
+import { Room } from './room.ts'
+import { getInventory } from '../helpers/data.ts'
 /**
  * Represents an instance of a level in a game, including its ID, rooms, tutorial status, and difficulty.
  */
 export class GameInstance {
-	player: Player
-	pastRooms: number[]
-	difficulty: number
+  public player: Player | null = null
+  public pastRooms: number[] = []
+  public difficulty: number
+  public currentRoom: Room
 
-	/**
-	 * Creates a new instance of a level with the specified parameters.
-	 * @param player The current player.
-	 * @param difficulty The difficulty level of the level instance.
-	*/
-	constructor(
-		player: Player,
-		difficulty: number = 1
-	) {
-		this.player = player
-		this.difficulty = difficulty
-		this.pastRooms = []
-	}
+  constructor (currentRoom: Room) {
+    this.currentRoom = currentRoom
+  }
 
-
-	setDifficulty(difficulty: number) {
-	  this.difficulty = difficulty
-	}
-
-	setPlayer(player: Player) {
-		this.player = player
-	}
-
-	setPastRooms(id: number) {
-		this.pastRooms.push(id)
-	}
-
-	nextRoom() {
-		const pre = Math.floor(Math.random() * 20)
-		if (this.pastRooms.includes(pre)) {
-			this.nextRoom()
-		} else {
-			return getRoom(pre)
-		}
-	}
-
+  load () {
+    const lastGame = JSON.parse(localStorage.getItem('game'))
+    const room = new Room(
+      lastGame.currentRoom.id,
+      lastGame.currentRoom.name,
+      lastGame.currentRoom.description,
+      [...lastGame.currentRoom.objects.map(el => getInventory(el))]
+    )
+    const player = new Player(
+      lastGame.player.id,
+      lastGame.player.type,
+      lastGame.player.name,
+      room,
+      lastGame.player.currentLP,
+      lastGame.player.weight,
+      [...lastGame.player.inventory.map(el => getInventory(el))]
+    )
+    this.currentRoom = room
+    this.player = player
+    this.pastRooms = lastGame.pastRooms
+    this.difficulty = lastGame.difficulty
+  }
 }

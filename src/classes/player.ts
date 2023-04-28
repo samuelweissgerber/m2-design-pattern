@@ -66,7 +66,7 @@ export class Player {
 	}
 
 	setCurrentLP(point: number) {
-		this.currentLP = point
+		this.currentLP = (point >= this.maxLP) ? this.maxLP : point
 	}
 
 	use(character: Character, weapon: Weapon) {

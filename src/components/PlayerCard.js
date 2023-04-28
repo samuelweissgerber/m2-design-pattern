@@ -1,16 +1,22 @@
-export const PlayerCard = ({ player, onClick, disabled }) => { 
+export const PlayerCard = ({ player, onClick, game }) => {
   return (
-    <button className="flip-card" onClick={() => onClick(player.id)} disabled={disabled}>
-      <div className="flip-card-inner">
-        <div className="flip-card-front">
-          <p className="title">{player.name}</p>
+    <button
+      className="player-card"
+      onClick={() => onClick(player.id)}
+      disabled={!game.difficulty}
+    >
+      <div className="player-card-inner">
+        <div className="character-container">
+          <div className={"character character--" + player.name.toLowerCase()}></div>
         </div>
-        <div className="flip-card-back">
-          <p className="title">{player.name}</p>
-          <p>Points de vie: <span>{player.maxLP}</span></p>
-          <p>Arme: <span>{player.inventory[0].name}</span></p>
-        </div>
+        <p className="title">{player.name}</p>
+        <p>
+          Points de vie: <span>{player.maxLP}</span>
+        </p>
+        <p>
+          Arme: <span>{player.inventory[0].name}</span>
+        </p>
       </div>
     </button>
-  )
-}
+  );
+};
