@@ -14,32 +14,31 @@ const Controllers = (): JSX.Element => {
 
   const selectPlayer = id => {
     const p = players.find(el => el.id === id)
-	  setGame({...game, player: p} )
+    setGame({ ...game, player: p })
     setTypeCurrentRoom('Game')
   }
 
-
   useEffect(() => {
-    if(game.currentRoom.id != 20){
-      localStorage.setItem('game',JSON.stringify(game))
+    if (game.currentRoom.id != 20) {
+      localStorage.setItem('game', JSON.stringify(game))
     }
-  },[game, setGame])
+  }, [game, setGame])
 
-  
   return (
     <>
-    
       {typeCurrentRoom === 'Start' && (
         <>
-        <p>Une nouvelle partie est disponible. Voulez vous continuer ?</p>
-        <button
-          onClick={()=> {
-            game.load()
-            setGame(game)
-            setTypeCurrentRoom('Game')
-          }}
-          className='button'
-          >Oui</button>
+          <p>Une nouvelle partie est disponible. Voulez vous continuer ?</p>
+          <button
+            onClick={() => {
+              game.load()
+              setGame(game)
+              setTypeCurrentRoom('Game')
+            }}
+            className='button'
+          >
+            Oui
+          </button>
           <p>Début de l'aventure</p>
           <p>
             Bienvenue dans ce jeu d'aventure ! Vous vous retrouvez plongé dans
@@ -63,48 +62,72 @@ const Controllers = (): JSX.Element => {
               !!game.difficulty ? 'levelSelected' : ''
             }`}
           >
-            <label className={`input__radio ${game.difficulty === 10 ? 'selected' : ''}`}>
+            <label
+              className={`input__radio ${
+                game.difficulty === 10 ? 'selected' : ''
+              }`}
+            >
               <input
                 name='level'
                 type='radio'
                 value='10'
-                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
+                onChange={e =>
+                  setGame({ ...game, difficulty: Number(e.target.value) })
+                }
               />
               <div className='input__radio-inner'>
                 <span className='name'>FACILE</span>
                 <span className='desc'>10 énigmes</span>
               </div>
             </label>
-            <label className={`input__radio ${game.difficulty === 15 ? 'selected' : ''}`}>
+            <label
+              className={`input__radio ${
+                game.difficulty === 15 ? 'selected' : ''
+              }`}
+            >
               <input
                 name='level'
                 type='radio'
                 value='15'
-                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
+                onChange={e =>
+                  setGame({ ...game, difficulty: Number(e.target.value) })
+                }
               />
               <div className='input__radio-inner'>
                 <span className='name'>MOYENNE</span>
                 <span className='desc'>15 énigmes</span>
               </div>
             </label>
-            <label className={`input__radio ${game.difficulty === 18 ? 'selected' : ''}`}>
+            <label
+              className={`input__radio ${
+                game.difficulty === 18 ? 'selected' : ''
+              }`}
+            >
               <input
                 name='level'
                 type='radio'
                 value='18'
-                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
+                onChange={e =>
+                  setGame({ ...game, difficulty: Number(e.target.value) })
+                }
               />
               <div className='input__radio-inner'>
                 <span className='name'>DIFFICILE</span>
                 <span className='desc'>18 énigmes</span>
               </div>
             </label>
-            <label className={`input__radio ${game.difficulty === 20 ? 'selected' : ''}`}>
+            <label
+              className={`input__radio ${
+                game.difficulty === 20 ? 'selected' : ''
+              }`}
+            >
               <input
                 name='level'
                 type='radio'
                 value='20'
-                onChange={e => setGame({...game, difficulty: Number(e.target.value)})}
+                onChange={e =>
+                  setGame({ ...game, difficulty: Number(e.target.value) })
+                }
               />
               <div className='input__radio-inner'>
                 <span className='name'>HARDCORE</span>
@@ -120,7 +143,7 @@ const Controllers = (): JSX.Element => {
                 key={key}
                 player={player}
                 onClick={selectPlayer}
-				        game = {game}
+                game={game}
               />
             ))}
           </div>
