@@ -20,12 +20,12 @@ export class Monster {
 
 	/**
 	 * Creates a new instance of the Monster class.
-	 * @param {number} id 
-	 * @param {string} name 
-	 * @param {number} LP 
-	 * @param {number} weight 
-	 * @param {string} description 
-	 * @param {IInteractiveObject} inventory 
+	 * @param {number} id - The unique identifier for the monster.
+	 * @param {string} name - Name of the monster.
+	 * @param {number} LP - Life point of the monster.
+	 * @param {number} weight - Weight of the monster.
+	 * @param {string} description - Description of the monster.
+	 * @param {IInteractiveObject} inventory - Inventory of the monster.
 	 */
 	constructor(id: number,name: string,  LP: number, weight: number = 0,description: string, inventory = []) {
 		this.id = id
@@ -77,7 +77,7 @@ export class Monster {
 
 	/**
      * Sets the current life points of the character.
-	 * @param {number} point -  The new life point value.
+	 * @param {number} point - The new life point value.
      */
 	setCurrentLP(point: number) {
 		this.currentLP = point
@@ -85,8 +85,8 @@ export class Monster {
 
 	/**
      * Uses a weapon against another character.
-     * @param {Player} character The target character.
-     * @param {Weapon} weapon The weapon to use.
+     * @param {Player} character - The target character.
+     * @param {Weapon} weapon - The weapon to use.
      * @returns "void".
      */
 	use(character: Player, weapon: Weapon) {
@@ -127,8 +127,8 @@ export class Monster {
   
 	/**
      * Attacks another character with a weapon.
-     * @param {Player} ennemy The target character.
-     * @param {Weapon} weapon The weapon to use.
+     * @param {Player} ennemy - The target character.
+     * @param {Weapon} weapon - The weapon to use.
      * @returns A message describing the result of the attack.
      */
 	attack(ennemy: Player, weapon: Weapon) {

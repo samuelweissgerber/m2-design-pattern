@@ -86,8 +86,8 @@ export class Player {
 
 	/**
      * Uses a weapon against another character.
-     * @param {Character} character The target character.
-     * @param {Weapon} weapon The weapon to use.
+     * @param {Character} character - The target character.
+     * @param {Weapon} weapon - The weapon to use.
      * @returns "void".
      */
 	use(character: Character, weapon: Weapon) {
@@ -128,8 +128,8 @@ export class Player {
 
 	/**
      * Attacks another character with a weapon.
-     * @param {Character} ennemy The target character.
-     * @param {Weapon} weapon The weapon to use.
+     * @param {Character} ennemy - The target character.
+     * @param {Weapon} weapon - The weapon to use.
      * @returns A message describing the result of the attack.
      */
 	attack(ennemy: Character, weapon: Weapon) {

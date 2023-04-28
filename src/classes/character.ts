@@ -16,11 +16,11 @@ export abstract class Character implements IInteractiveObject {
 
 	/**
      * Creates a new character with the specified parameters.
-     * @param id The ID of the character.
-     * @param startingRoom The starting room of the character.
-	 * @param LP The starting life points of the character.
-     * @param weight The weight of the character.
-     * @param inventory The initial inventory of the character.
+     * @param {number} id - The ID of the character.
+     * @param {Room} startingRoom - The starting room of the character.
+	 * @param {number} LP - The starting life points of the character.
+     * @param {number} weight - The weight of the character.
+     * @param {IInteractiveObject} inventory - The initial inventory of the character.
      */
 	constructor(
 		id: number,
@@ -47,7 +47,7 @@ export abstract class Character implements IInteractiveObject {
 	 
 	/**
      * Sets the current life points of the character.
-     * @param point The new life point value.
+     * @param {number} point - The new life point value.
      */
 	setCurrentLP(point: number) {
 		this.currentLP = point
@@ -56,8 +56,8 @@ export abstract class Character implements IInteractiveObject {
 	
     /**
      * Uses a weapon against another character.
-     * @param character The target character.
-     * @param weapon The weapon to use.
+     * @param {Character} character - The target character.
+     * @param {Weapon} weapon - The weapon to use.
      * @returns "void".
      */
 	use(character: Character, weapon: Weapon) {
@@ -66,7 +66,7 @@ export abstract class Character implements IInteractiveObject {
 
 	/**
      * Adds an item to the character's inventory.
-     * @param object The item to add.
+     * @param {IInteractiveObject} object - The item to add.
      */
 	addItemToInventory(object: IInteractiveObject) {
 		this.inventory.push(object)
@@ -74,7 +74,7 @@ export abstract class Character implements IInteractiveObject {
 
 	/**
      * Removes an item from the character's inventory.
-     * @param object The item to remove.
+     * @param {IInteractiveObject} object - The item to remove.
      */
 	removeItemToInventory(object: IInteractiveObject) {
 		this.inventory = this.inventory.filter((obj) => obj.name !== object.name)
@@ -98,8 +98,8 @@ export abstract class Character implements IInteractiveObject {
 
 	/**
      * Attacks another character with a weapon.
-     * @param ennemy The target character.
-     * @param weapon The weapon to use.
+     * @param {Character} ennemy - The target character.
+     * @param {Weapon} weapon - The weapon to use.
      * @returns A message describing the result of the attack.
      */
 	attack(ennemy: Character, weapon: Weapon) {
