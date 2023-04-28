@@ -8,6 +8,14 @@ import { Takable } from "./takable.ts"
  */
 export class Weapon extends Takable {
 	damage: number
+
+	/**
+	 * Creates a new Weapon object with the given properties.
+	 * @param name The name of the object.
+	 * @param description A description of the object.
+	 * @param weight The weight of the object.
+	 * @param damage The damage applied with the weapon.
+	*/
 	constructor(id: number,
 		name: string = "Arme",
 		description: string,
