@@ -9,7 +9,7 @@ export class Armor extends Takable {
 	name: string
 	protection: number
   
-/**
+	/**
 	 * Creates an instance of Armor.
 	*/
 	constructor(
