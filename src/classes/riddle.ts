@@ -16,12 +16,12 @@ export class Riddle implements IInteractiveObject {
 	isFirstAnswer: Boolean
 
   	/**
-	 * Creates a new riddle
-	 * @param id - The unique identifier for the riddle
-	 * @param question - The question asked by the riddle
-	 * @param answer - The answer to the riddle
-	 * @param weight - The weight of the riddle (default 0)
-	 * @param reward - The reward for solving the riddle
+	 * Creates a new instance of the Riddle class.
+	 * @param id - The unique identifier for the riddle.
+	 * @param question - The question asked by the riddle.
+	 * @param answer - The answer to the riddle.
+	 * @param weight - The weight of the riddle (default 0).
+	 * @param reward - The reward for solving the riddle.
 	 */
 	constructor(
 		id: number,
@@ -43,17 +43,17 @@ export class Riddle implements IInteractiveObject {
 	}
 
   	/**
-	 * Returns a string with information about the riddle
-	 * @returns A string with information about the riddle
+	 * Returns a string with information about the riddle.
+	 * @returns A string with information about the riddle.
 	 */
 	examine() {
 		return `Name : ${this.name} \n Question : ${this.question} \n Answer : ${this.answer} \n Reward ${this.reward}`
 	}
 
   	/**
-	 * Solves the riddle and say if the answer is correct
-	 * @param reponse - The player attempting to solve the riddle
-	 * @returns if the answer is correct
+	 * Solves the riddle and say if the answer is correct.
+	 * @param reponse - The player attempting to solve the riddle.
+	 * @returns if the answer is correct.
 	 */
 	use(response: String): boolean {
 		this.isFirstAnswer = false
