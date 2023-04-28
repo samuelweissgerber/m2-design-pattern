@@ -14,14 +14,14 @@ export abstract class Character implements IInteractiveObject {
 	weight: number
 	inventory: any[]
 
-	 /**
+	/**
      * Creates a new character with the specified parameters.
      * @param id The ID of the character.
      * @param startingRoom The starting room of the character.
-     * @param LP The starting life points of the character.
+	 * @param LP The starting life points of the character.
      * @param weight The weight of the character.
      * @param inventory The initial inventory of the character.
-    */
+     */
 	constructor(
 		id: number,
 		startingRoom: Room,
@@ -37,10 +37,10 @@ export abstract class Character implements IInteractiveObject {
 		this.weight = weight
 	}
 
-	 /**
+	/**
      * Returns the name of the character.
      * @returns The name of the character.
-    */
+     */
 	examine() {
 		return this.name
 	}
@@ -48,7 +48,7 @@ export abstract class Character implements IInteractiveObject {
 	/**
      * Sets the current life points of the character.
      * @param point The new life point value.
-    */
+     */
 	setCurrentLP(point: number) {
 		this.currentLP = point
 	}
@@ -59,15 +59,15 @@ export abstract class Character implements IInteractiveObject {
      * @param character The target character.
      * @param weapon The weapon to use.
      * @returns "void".
-    */
+     */
 	use(character: Character, weapon: Weapon) {
 		return "void"
 	}
 
-	 /**
+	/**
      * Adds an item to the character's inventory.
      * @param object The item to add.
-    */
+     */
 	addItemToInventory(object: IInteractiveObject) {
 		this.inventory.push(object)
 	}
@@ -75,7 +75,7 @@ export abstract class Character implements IInteractiveObject {
 	/**
      * Removes an item from the character's inventory.
      * @param object The item to remove.
-    */
+     */
 	removeItemToInventory(object: IInteractiveObject) {
 		this.inventory = this.inventory.filter((obj) => obj.name !== object.name)
 	}
@@ -83,7 +83,7 @@ export abstract class Character implements IInteractiveObject {
 	/**
      * Gets a description of the character's inventory.
      * @returns A description of the character's inventory.
-    */
+     */
 	getInventoryDescription() {
 		let description = "Inventaire :"
 		if (this.inventory.length === 0) {
@@ -96,12 +96,12 @@ export abstract class Character implements IInteractiveObject {
 		return description
 	}
 
-	 /**
+	/**
      * Attacks another character with a weapon.
      * @param ennemy The target character.
      * @param weapon The weapon to use.
      * @returns A message describing the result of the attack.
-    */
+     */
 	attack(ennemy: Character, weapon: Weapon) {
 		if (this.inventory.find((el) => el.name === weapon.name)) {
 			const ennemyProtection: number =
