@@ -46,7 +46,6 @@ export class Player {
 
 	/**
 	 * Gets the protection provided by the armor worn by the player.
-	 *
 	 * @returns {number} The protection value.
 	 */
 	getProtection(): number {
@@ -55,7 +54,6 @@ export class Player {
 
 	/**
 	 * Sets the protection provided by the armor worn by the player.
-	 *
 	 * @param {number} protection - The protection value to set.
 	 */
 	setProtection(protection: number) {
@@ -64,7 +62,6 @@ export class Player {
 
 	/**
 	 * Moves the player to the specified room.
-	 *
 	 * @param {Room} room - The room where the player should go.
 	 */
 	goTo(room: Room) {
