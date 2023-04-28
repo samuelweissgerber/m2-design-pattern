@@ -14,10 +14,10 @@ export class Trap implements IInteractiveObject {
 
   	/**
      * Creates a new instance of the Trap class.
-     * @param id - The unique identifier of the trap.
-     * @param description - The description of the trap.
-     * @param damage - The amount of damage the trap can inflict.
-     * @param weight - The weight of the trap (default is 0).
+     * @param {number} id - The unique identifier of the trap.
+     * @param {string} description - The description of the trap.
+     * @param {number} damage - The amount of damage the trap can inflict.
+     * @param {number} weight - The weight of the trap (default is 0).
   	 */
 	constructor(
 		id: number,
