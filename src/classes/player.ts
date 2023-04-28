@@ -18,6 +18,16 @@ export class Player {
 	protection: number
 	inventory: any[]
 
+	/**
+	 * Creates a new instance of the Player class.
+	 * @param id - The unique identifier for the player.
+	 * @param type - Type of the player.
+	 * @param name - Name of the player.
+	 * @param startingRoom - Starting Room instance.
+	 * @param LP - Life point of the player.
+	 * @param weight - Weight of the player.
+	 * @param inventory - Inventory of the player.
+	 */
 	constructor(id: number,type: string, name: string, startingRoom: Room, LP: number, weight: number = 0, inventory = []) {
 		this.id = id
 		this.type = type
@@ -61,10 +71,18 @@ export class Player {
 		this.currentRoom = room
 	}
 
+	/**
+	 * Get name of the player.
+	 */
 	examine() {
 		return this.name
 	}
 
+	/**
+	 * Update life points of the player.
+	 *
+	 * @param {number} point - New life points.
+	 */
 	setCurrentLP(point: number) {
 		this.currentLP = (point >= this.maxLP) ? this.maxLP : point
 	}
@@ -74,23 +92,23 @@ export class Player {
 	}
 
 	/**
-	 * Add item to character's inventory
-	 * @param {IInteractiveObject} object - The inventory
+	 * Add item to character's inventory.
+	 * @param {IInteractiveObject} object - The inventory.
 	 */
 	addItemToInventory(object: IInteractiveObject) {
 		this.inventory.push(object)
 	}
 
 	/**
-	 * Remove item from character's inventory
-	 *  @param {IInteractiveObject} object - The inventory
+	 * Remove item from character's inventory.
+	 *  @param {IInteractiveObject} object - The inventory.
 	 */
 	removeItemToInventory(object: IInteractiveObject) {
 		this.inventory = this.inventory.filter((obj) => obj.name !== object.name)
 	}
 
 	/**
-	 * Get a description of the player's inventory
+	 * Get a description of the player's inventory.
 	 */
 	getInventoryDescription() {
 		let description = "Inventaire :"
@@ -104,6 +122,11 @@ export class Player {
 		return description
 	}
 
+	/**
+	 * Attack ennemy.
+	 * @param {Character} ennemy - The ennemy to attack.
+	 * @param {Weapon} weapon - The weapon used to attack the ennemy.
+	 */
 	attack(ennemy: Character, weapon: Weapon) {
 			if (this.inventory.find((el) => el.name === weapon.name)) {
 				const ennemyProtection: number =
@@ -122,6 +145,9 @@ export class Player {
 			}
 	}
 
+	/**
+	 * Chance that the player responds.
+	 */
 	tryToTalk() {
 		return  Math.random() < 0.5
 	}
