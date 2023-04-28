@@ -11,10 +11,10 @@ export class Weapon extends Takable {
 
 	/**
 	 * Creates a new Weapon object with the given properties.
-	 * @param name The name of the object.
-	 * @param description A description of the object.
-	 * @param weight The weight of the object.
-	 * @param damage The damage applied with the weapon.
+	 * @param {string} name - The name of the object.
+	 * @param {string} description - A description of the object.
+	 * @param {number} weight - The weight of the object.
+	 * @param {number} damage - The damage applied with the weapon.
 	*/
 	constructor(id: number,
 		name: string = "Arme",
@@ -30,8 +30,8 @@ export class Weapon extends Takable {
 
 	/**
 	 * Uses the weapon trap against an enemy, causing damage and triggering any associated effects.
-	 * @param player The player using the weapon.
-	 * @param enemy The enemy being attacked.
+	 * @param {Character} player - The player using the weapon.
+	 * @param {Character} enemy - The enemy being attacked.
 	 * @returns A string describing the result of the attack.
    	*/
   	use(player: Character, ennemy: Character) {

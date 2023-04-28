@@ -10,11 +10,11 @@ export class Treasure extends Takable {
 
 	/**
 	 * Creates a new Treasure object with the given properties.
-	 * @param id The ID of the object.
-	 * @param name The name of the object.
-	 * @param description A description of the object.
-	 * @param weight The weight of the object.
-	 * @param inventory The inventory where the item will be added.
+	 * @param {number} id - The ID of the object.
+	 * @param {string} name - The name of the object.
+	 * @param {string} description - A description of the object.
+	 * @param {number} weight - The weight of the object.
+	 * @param {IInteractiveObject} inventory - The inventory where the item will be added.
 	*/
 	constructor(id: number,
 		name: string = "Arme",
@@ -28,7 +28,7 @@ export class Treasure extends Takable {
 
 	/**
 	 * Adds the treasure's inventory items to the player's inventory and returns a message.
-	 * @param player The player using the treasure.
+	 * @param {Player} player - The player using the treasure.
 	 * @returns A string describing the result of using the treasure.
    	*/
 	use(player: Player) {

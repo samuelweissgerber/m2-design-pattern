@@ -15,11 +15,11 @@ export abstract class Takable implements IInteractiveObject {
 
 	/**
 	 * Creates a new Takable object with the given properties.
-	 * @param id The ID of the object.
-	 * @param name The name of the object.
-	 * @param description A description of the object.
-	 * @param damage The amount of damage the object can inflict.
-	 * @param weight The weight of the object.
+	 * @param {number} id - The ID of the object.
+	 * @param {string} name - The name of the object.
+	 * @param {string} description - A description of the object.
+	 * @param {number} damage - The amount of damage the object can inflict.
+	 * @param {number} weight - The weight of the object.
 	*/
 	constructor(
 		id: number,

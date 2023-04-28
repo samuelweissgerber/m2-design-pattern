@@ -10,7 +10,12 @@ export class Armor extends Takable {
 	protection: number
   
 	/**
-	 * Creates an instance of Armor.
+	 * Creates a new Armor object with the given properties.
+	 * @param {number} id - The ID of the object.
+	 * @param {string} name - The name of the object.
+	 * @param {string} description - A description of the object.
+	 * @param {number} weight - The weight of the object.
+	 * @param {number} protection - The amount of protection the object have.
 	*/
 	constructor(
 		id: number,
@@ -35,7 +40,7 @@ export class Armor extends Takable {
 
 	/**
 	 * Applies the armor's protection to the player's character.
-	 * @param player The player's character object.
+	 * @param {Player} player - The player's character object.
 	 * @returns A string indicating that the armor has been used and the amount of protection it provides.
 	*/
 	use(player: Player) {
