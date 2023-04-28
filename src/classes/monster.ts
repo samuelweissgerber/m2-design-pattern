@@ -18,6 +18,15 @@ export class Monster {
 	description: string
 	inputType: InputType
 
+	/**
+	 * Creates a new instance of the Monster class.
+	 * @param {number} id 
+	 * @param {string} name 
+	 * @param {number} LP 
+	 * @param {number} weight 
+	 * @param {string} description 
+	 * @param {IInteractiveObject} inventory 
+	 */
 	constructor(id: number,name: string,  LP: number, weight: number = 0,description: string, inventory = []) {
 		this.id = id
     	this.name = name
@@ -34,27 +43,52 @@ export class Monster {
 		this.inputType = InputType.Boolean
 	}
 
-
+	/**
+	 * Gets the protection provided by the armor worn by the monster.
+	 * @returns {number} The protection value.
+	 */
 	getProtection(): number {
 		return this.protection
 	}
 
+	/**
+	 * Sets the protection provided by the armor worn by the monster.
+	 * @param {number} protection - The protection value to set.
+	 */
 	setProtection(protection: number) {
 		this.protection += protection
 	}
 
+	/**
+	 * Moves the monster to the specified room.
+	 * @param {Room} room - The room where the monster should go.
+	 */
 	goTo(room: Room) {
 		this.currentRoom = room
 	}
 
+	/**
+     * Returns the name of the character.
+     * @returns The name of the character.
+     */
 	examine() {
 		return this.name
 	}
 
+	/**
+     * Sets the current life points of the character.
+	 * @param {number} point -  The new life point value.
+     */
 	setCurrentLP(point: number) {
 		this.currentLP = point
 	}
 
+	/**
+     * Uses a weapon against another character.
+     * @param {Player} character The target character.
+     * @param {Weapon} weapon The weapon to use.
+     * @returns "void".
+     */
 	use(character: Player, weapon: Weapon) {
 		return "void"
 	}
@@ -76,7 +110,8 @@ export class Monster {
 	}
 
 	/**
-	 * Get a description of the player's inventory
+	 * Get a description of the monster's inventory.
+	 * @returns The description
 	 */
 	getInventoryDescription() {
 		let description = "Inventaire :"
@@ -90,19 +125,25 @@ export class Monster {
 		return description
 	}
   
-  attack(ennemy: Player, weapon: Weapon) {
-    if (this.inventory.find(el => el.name === weapon.name)) {
-      const playerProtection : number =  ennemy.inventory.find(el => el.name === "Armure")?.protection ?? 0
-      const damage: number = playerProtection - weapon.damage
-      ennemy.setCurrentLP(ennemy.currentLP - damage ) 
-      if (ennemy.currentLP <= 0) {
-        ennemy.currentRoom.removeObject(this)
-        return `${this.name} vous a vaincu !`
-      } else {
-        return `${this.name} vous attaque et vous inflige ${damage} dégâts !`
-      } 
-    } else {
-      return ` Vous ne possédez pas de ${weapon.name}`
-    }
-  }
+	/**
+     * Attacks another character with a weapon.
+     * @param {Player} ennemy The target character.
+     * @param {Weapon} weapon The weapon to use.
+     * @returns A message describing the result of the attack.
+     */
+	attack(ennemy: Player, weapon: Weapon) {
+		if (this.inventory.find(el => el.name === weapon.name)) {
+		const playerProtection : number =  ennemy.inventory.find(el => el.name === "Armure")?.protection ?? 0
+		const damage: number = playerProtection - weapon.damage
+		ennemy.setCurrentLP(ennemy.currentLP - damage ) 
+		if (ennemy.currentLP <= 0) {
+			ennemy.currentRoom.removeObject(this)
+			return `${this.name} vous a vaincu !`
+		} else {
+			return `${this.name} vous attaque et vous inflige ${damage} dégâts !`
+		} 
+		} else {
+		return ` Vous ne possédez pas de ${weapon.name}`
+		}
+	}
 }
